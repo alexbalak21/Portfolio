@@ -1,0 +1,33 @@
+export const services = 
+[
+  {
+    "id": 1,
+    "icon": "Layout",
+    "title": "Frontend Development",
+    "description": "Building responsive and performant web applications using React, Next.js, and modern JavaScript frameworks."
+  },
+  {
+    "id": 2,
+    "icon": "Smartphone",
+    "title": "Responsive Design",
+    "description": "Creating mobile-first, responsive interfaces that work seamlessly across all devices and screen sizes."
+  },
+  {
+    "id": 3,
+    "icon": "Palette",
+    "title": "UI/UX Design",
+    "description": "Designing intuitive and visually appealing user interfaces with a strong focus on usability and accessibility."
+  },
+  {
+    "id": 4,
+    "icon": "Code2",
+    "title": "Custom Components",
+    "description": "Developing reusable, scalable component libraries and design systems that maintain consistency across applications."
+  },
+  {
+    "id": 5,
+    "icon": "Zap",
+    "title": "Performance Optimization",
+    "description": "Optimizing web applications for speed and efficiency through code splitting, lazy loading, and best performance practices."
+  }
+]
