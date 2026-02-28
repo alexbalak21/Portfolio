@@ -27,14 +27,14 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[1000] w-full py-4 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-1000 w-full py-4 transition-all duration-300 ${
         isScrolled
           ? 'bg-black/30 backdrop-blur-lg'
           : 'bg-transparent'
       }`}
       style={{ transform: 'translate3d(0, 0, 0)' }}
     >
-      <div className="max-w-[1320px] mx-auto px-5">
+      <div className="max-w-330 mx-auto px-5">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
@@ -119,7 +119,8 @@ const Navbar: React.FC = () => {
 
           <button
             onClick={() => handleNavClick('contact')}
-            className="w-full px-4 py-3 bg-white text-[#212121] font-medium rounded-lg hover:bg-white/90 transition-all duration-300"
+            className="w-full px-7 py-3.5 bg-white text-[#212121] font-medium text-base rounded-[17px] border border-white hover:bg-white/90 transition-all duration-300 mt-2"
+
           >
             Hire Me
           </button>

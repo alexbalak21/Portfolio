@@ -1,20 +1,17 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from "react";
 
 interface ScrollRevealOptions {
   threshold?: number;
   rootMargin?: string;
 }
 
-export const useScrollReveal = (
-  options: ScrollRevealOptions = {}
-) => {
-  const {
-    threshold = 0.1,
-    rootMargin = '0px',
-  } = options;
+export const useScrollReveal = (options: ScrollRevealOptions = {}) => {
+  const { threshold = 0.1, rootMargin = "0px" } = options;
 
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const ref = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // FIX: force the ref to be a div ref
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const element = ref.current;
@@ -27,10 +24,7 @@ export const useScrollReveal = (
           observer.unobserve(element);
         }
       },
-      {
-        threshold,
-        rootMargin,
-      }
+      { threshold, rootMargin }
     );
 
     observer.observe(element);
