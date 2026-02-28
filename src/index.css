@@ -21,29 +21,43 @@
         overflow-x: hidden;
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
 
-    ::-webkit-scrollbar-track {
-        background: #0a0a0a;
-    }
+/* --- Cross-browser custom scrollbar --- */
+/* Chrome, Edge, Safari (Webkit) */
+::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border-radius: 5px;
+}
+html.scrolling::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8DFF69, #6FE047);
+    opacity: 1;
+    pointer-events: auto;
+}
+html.scrolling::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #A8FF8D, #5BC92E);
+}
+html.scrolling::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
 
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #8DFF69, #6FE047);
-        border-radius: 5px;
-    }
+/* Firefox */
+html {
+    scrollbar-width: thin; /* Only 'auto', 'thin', or 'none' supported */
+    scrollbar-color: transparent #0a0a0a;
+}
+html.scrolling {
+    scrollbar-width: thin;
+    scrollbar-color: #6FE047 #0a0a0a;
+}
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #A8FF8D, #5BC92E);
-    }
-
-    /* Firefox Scrollbar */
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: #6FE047 #0a0a0a;
-    }
+/* Fallback for browsers that do not support custom scrollbars: default system scrollbar will show. */
 
     /* Hide Scrollbar for Carousel */
     .hide-scrollbar {
