@@ -24,5 +24,17 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "compilerOptions": {
+    // ...existing options...
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@": ["src"],
+      "@app/*": ["src/app/*"],
+      "@features/*": ["src/features/*"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"]
+    }
+  }
 }
