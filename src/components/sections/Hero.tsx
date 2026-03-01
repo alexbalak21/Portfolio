@@ -17,7 +17,7 @@ import {
 const Hero = () => {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* <RadialGradientBackground variant="hero" /> */}
+      <RadialGradientBackground variant="hero" />
 
       {/* Content Container */}
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-24">
