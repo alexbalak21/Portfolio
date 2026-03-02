@@ -1,5 +1,26 @@
 import { skills } from "../../data/skills";
-import * as Icons from "lucide-react";
+type SkillLevel = "Expert" | "Advanced" | "Intermediate";
+import {
+  Code2,
+  FileCode,
+  FileType,
+  Zap,
+  Server,
+  GitBranch,
+  Database,
+  Globe,
+  Sparkles,
+} from "lucide-react";
+const iconMap = {
+  Code2,
+  FileCode,
+  FileType,
+  Zap,
+  Server,
+  GitBranch,
+  Database,
+  Globe,
+};
 import FadeIn from "../animations/FadeIn";
 
 const Skills = () => {
@@ -28,7 +49,7 @@ const Skills = () => {
   };
 
   // Level color
-  const getLevelColor = (level: string) => {
+  const getLevelColor = (level: SkillLevel) => {
     const colors = {
       Expert: "text-[#8DFF69] bg-[#8DFF69]/20 border-[#8DFF69]/30",
       Advanced: "text-cyan-400 bg-cyan-500/20 border-cyan-500/30",
@@ -64,7 +85,7 @@ const Skills = () => {
         <FadeIn delay={100}>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-              <Icons.Sparkles className="w-4 h-4 text-primary" />
+              <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">My Expertise</span>
             </div>
 
@@ -81,7 +102,7 @@ const Skills = () => {
         </FadeIn>
 
         {/* Skills Categories */}
-        <div className="grid grid-cols-1 lg:grid-col-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {Object.entries(skillCategories).map(
             ([category, categorySkills], categoryIndex) => (
               <FadeIn key={category} delay={categoryIndex * 100}>
@@ -95,8 +116,8 @@ const Skills = () => {
                   {/* Skills List */}
                   <div className="space-y-5">
                     {categorySkills.map((skill) => {
-                      const IconComponent =
-                        Icons[skill.icon] || Icons.Code2;
+                      if (!skill) return null;
+                      const IconComponent = iconMap[skill.icon as keyof typeof iconMap] || Code2;
                       const proficiency = getProficiencyLevel(skill.level);
 
                       return (
@@ -113,14 +134,14 @@ const Skills = () => {
                             <div>
                               <div className="text-sm font-medium text-white">
                                 {skill.name}
-                                </div>
+                              </div>
                               <div className="text-xs text-white/50">
                                 {skill.experience}
-                                </div>
+                              </div>
 
                               <span
                                 className={`text-xs px-2 py-1 rounded-full border ${getLevelColor(
-                                  skill.level
+                                  skill.level as SkillLevel
                                 )}`}
                               >
                                 {skill.level}

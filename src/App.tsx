@@ -1,6 +1,7 @@
 import Navbar from "@components/layout/Navbar"
 import About from "@components/sections/About"
 import Hero from "@components/sections/Hero"
+import Skills from "@components/sections/Skills";
 
 import { useEffect, useRef } from "react";
 
@@ -28,7 +29,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        {/* Force overflow for scrollbar test */}
+        <Skills />
         <div style={{ height: "2000px" }} />
       </main>
     </div>
