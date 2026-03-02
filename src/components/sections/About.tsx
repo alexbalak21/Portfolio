@@ -163,6 +163,6 @@ const About = () => {
   );
 };
 
-// https://youtu.be/UQVB8fe_b4E?si=dqLxI7GGWM3nONhY&t=3835
+// https://youtu.be/UQVB8fe_b4E?si=1PoBlpv5NVUOc0ee&t=4065
 
 export default About;
