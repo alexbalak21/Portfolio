@@ -57,13 +57,23 @@ const Projects = () => {
     }
   };
 
+  // Responsive: 3 projects per page on lg, 2 on md, 1 on sm
+  let projectsPerPage = 3;
+  if (typeof window !== 'undefined') {
+    if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+      projectsPerPage = 2;
+    } else if (window.innerWidth < 768) {
+      projectsPerPage = 1;
+    }
+  }
+
   const prevSlide = () => {
-    if (currentIndex > 0) scrollToIndex(currentIndex - 1);
+    if (currentIndex > 0) scrollToIndex(Math.max(currentIndex - projectsPerPage, 0));
   };
 
   const nextSlide = () => {
-    if (currentIndex < filteredProjects.length - 1)
-      scrollToIndex(currentIndex + 1);
+    if (currentIndex < filteredProjects.length - projectsPerPage)
+      scrollToIndex(Math.min(currentIndex + projectsPerPage, filteredProjects.length - 1));
   };
 
   return (
@@ -101,8 +111,8 @@ const Projects = () => {
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
                   className={`flex items-center gap-2 px-5 py-2 rounded-full border transition-all duration-300 ${active
-                      ? "bg-primary/20 border-primary text-primary"
-                      : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                    ? "bg-primary/20 border-primary text-primary"
+                    : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
                     }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -123,11 +133,24 @@ const Projects = () => {
               className="overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar"
             >
               <div className="flex gap-6 pb-4">
-                {filteredProjects.map((project) => (
-                  <div key={project.id} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] shrink-0 snap-start" >
-                    <ProjectCard project={project} />
-                  </div>
-                ))}
+                {(() => {
+                  // Responsive: 3 projects per page on lg, 2 on md, 1 on sm
+                  let projectsPerPage = 3;
+                  if (typeof window !== 'undefined') {
+                    if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+                      projectsPerPage = 2;
+                    } else if (window.innerWidth < 768) {
+                      projectsPerPage = 1;
+                    }
+                  }
+                  const start = Math.floor(currentIndex / projectsPerPage) * projectsPerPage;
+                  const end = start + projectsPerPage;
+                  return filteredProjects.slice(start, end).map((project) => (
+                    <div key={project.id} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] shrink-0 snap-start" >
+                      <ProjectCard project={project} />
+                    </div>
+                  ));
+                })()}
               </div>
             </div>
 
@@ -171,14 +194,14 @@ const Projects = () => {
             {/* Navigation Dots */}
             {filteredProjects.length > 3 && (
               <div className="flex justify-center gap-2 mt-6">
-                {Array.from({ length: filteredProjects.length }).map((_, index) => (
+                {Array.from({ length: Math.ceil(filteredProjects.length / projectsPerPage) }).map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => scrollToIndex(index)}
-                    aria-label={`Go to slide ${index + 1}`}
+                    onClick={() => scrollToIndex(index * projectsPerPage)}
+                    aria-label={`Go to page ${index + 1}`}
                     className={`
                       rounded-full transition-all duration-300
-                      ${currentIndex === index
+                      ${currentIndex >= index * projectsPerPage && currentIndex < (index + 1) * projectsPerPage
                         ? "bg-primary w-6 h-2"
                         : "bg-white/30 w-2 h-2 hover:bg-white/50"
                       }
