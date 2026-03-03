@@ -142,13 +142,13 @@ const Projects = () => {
                   disabled={currentIndex === 0}
                   aria-label="Previous projects"
                   className="
-                    absolute left-0 top-1/2 -translate-y-1/2 z-20
+                    absolute -left-8 lg:-left-15 md:-left-8 top-1/2 -translate-y-1/2 z-20
                     p-3 bg-white/10 hover:bg-white/20
                     rounded-full backdrop-blur border border-white/20
                     disabled:opacity-30 disabled:cursor-not-allowed
                   "
                 >
-                  <ChevronLeft className="w-5 h-5 text-white" />
+                  <ChevronLeft className="w-6 h-6 text-white" />
                 </button>
 
                 {/* Next */}
@@ -157,13 +157,13 @@ const Projects = () => {
                   disabled={currentIndex >= filteredProjects.length - 1}
                   aria-label="Next projects"
                   className="
-                    absolute right-0 top-1/2 -translate-y-1/2 z-20
+                    absolute -right-8 lg:-right-15 md:-right-8 top-1/2 -translate-y-1/2 z-20
                     p-3 bg-white/10 hover:bg-white/20
                     rounded-full backdrop-blur border border-white/20
                     disabled:opacity-30 disabled:cursor-not-allowed
                   "
                 >
-                  <ChevronRight className="w-5 h-5 text-white" />
+                  <ChevronRight className="w-6 h-6 text-white" />
                 </button>
               </>
             )}
