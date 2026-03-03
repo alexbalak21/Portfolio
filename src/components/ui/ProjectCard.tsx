@@ -78,7 +78,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       {/* Content */}
       <div className="p-6 space-y-4">
         <div>
-          <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary/90 transition-colors duration-300 ">
+          <h3 className="text-xl font-semibold md:text-start text-center text-white mb-2 group-hover:text-primary/90 transition-colors duration-300 ">
             {title}
           </h3>
           <p className="text-white/60 text-sm leading-relaxed line-clamp-2">
