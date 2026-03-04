@@ -68,7 +68,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Category Badge */}
-        <div className="absolute bottom-3 left-3">
+        <div className="absolute top-3 left-3">
           <span className="px-3 py-1 text-xs font-medium text-white bg-black/40 backdrop-blur-sm border border-white/20 rounded-full">
             {project.category}
           </span>
