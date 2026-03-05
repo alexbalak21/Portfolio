@@ -10,7 +10,7 @@ const iconMap = {
   Zap,
   GitBranch
 };
-// https://youtu.be/UQVB8fe_b4E?si=O0s9agR0rd9qZ9Cd&t=6064
+
 const Services = () => {
   return (
     <section id="services" className="relative py-20 bg-black overflow-hidden">
@@ -98,7 +98,6 @@ const Services = () => {
         </div>
       </div>
     </section>
-    // https://youtu.be/UQVB8fe_b4E?si=4yCDXJpvi-Md9dko&t=6345
   );
 };
 

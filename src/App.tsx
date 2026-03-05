@@ -4,6 +4,7 @@ import Hero from "@components/sections/Hero"
 import Projects from "@components/sections/Projects";
 import Services from "@components/sections/Services";
 import Skills from "@components/sections/Skills";
+import Testimonials from "@components/sections/Testimonials";
 
 import { useEffect, useRef } from "react";
 
@@ -34,6 +35,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Services />
+        <Testimonials />
         <div style={{ height: "2000px" }} />
       </main>
     </div>
