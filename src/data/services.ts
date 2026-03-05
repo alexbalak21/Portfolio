@@ -29,5 +29,11 @@ export const services =
     "icon": "Zap",
     "title": "Performance Optimization",
     "description": "Optimizing web applications for speed and efficiency through code splitting, lazy loading, and best performance practices."
+  },
+  {
+    "id": 6,
+    "icon": "GitBranch",
+    "title": "Code Review & Consulting",
+    "description": "Providing expert code reviews, architecture consulting, and technical guidance to improve your development workflow."
   }
 ]
