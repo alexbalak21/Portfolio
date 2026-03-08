@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../../utils/constants';
 import FadeIn from '../animations/FadeIn';
-import { Github, Linkedin, MessageSquare, Send, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, MessageSquare, Send, Twitter } from 'lucide-react';
 
 const Contact = () => {
 
@@ -148,6 +148,34 @@ return (
               </form>
             </div>
           </FadeIn>
+
+          <FadeIn delay={200}>
+            <div className="">
+              <div>
+                <h3>Let's Connect</h3>
+              </div>
+              <p className="">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+            </div>
+            <div className="">
+                <div className="">
+                  <div className="">
+                    <div className="">
+                      <Mail className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="">
+                      <p className="">Email</p>
+                      <a href={`mailto:${PERSONAL_INFO.email}`} className="text-primary hover:underline">
+                        {PERSONAL_INFO.email}
+                      </a>
+                    </div>
+                  </div>
+
+
+                </div>
+            </div>
+          </FadeIn>
+          {/* https://youtu.be/UQVB8fe_b4E?si=kEcfmQ1QelwFHh-k&t=7725 */}
+
         </div>
 
     </div>
