@@ -71,53 +71,70 @@ const socialIcons = {
 };
 
 return (
-  <section id="contact" className=''>
-    <div className="">
-      <div className="" />
-      <div className="" />
-      <div className="" />
+  <section id="contact" className="relative py-20 bg-black overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 opacity-30 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/20 opacity-30 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 opacity-30 rounded-full blur-3xl" />
     </div>
-    <div className="">
-      <FadeIn delay={}>
-        <div className="">
-          
-          <div className="">
-            <MessageSquare className="" />
-            <span className="">Get In Touch</span>
+
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeIn delay={0}>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/30 rounded-full mb-6">
+            <MessageSquare className="w-4 h-4 text-primary" />
+            <span className="text-sm text-primary font-medium tracking-wider uppercase">Get In Touch</span>
           </div>
-          <h2 className="">Let's Work Together</h2>
-          <p className="">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+          <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">Let's Work Together</h2>
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
         </div>
         </FadeIn>
 
-        <div className="">
+        <div className="grid md:grid-cols-2 gap-12">
           <FadeIn delay={100}>
-            <div className="">
-              <form onSubmit={handleSubmit} className="">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="">
+                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
                     Name
                   </label>
-                  <input type="text" id="name" value={formData.name} name="name" onChange={handleChange} className="" placeholder="Your name" />
+                  <input type="text" id="name" value={formData.name} name="name" onChange={handleChange} 
+                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300" 
+                  placeholder="Your name" />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="" >
+                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
                     Email
                   </label>
-                  <input type="email" id="email" value={formData.email} name="email" onChange={handleChange} className="" placeholder="your.email@example.com" />
+                  <input 
+                  type="email" 
+                  id="email" 
+                  value={formData.email} 
+                  name="email" 
+                  onChange={handleChange} 
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300" 
+                  />
                 </div>
 
                 <div>
-                  <label htmlFor="message">
+                  <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
                     Message
                   </label>
-                  <textarea id="message" value={formData.message} name="message" onChange={handleChange} className="" placeholder="Tell me about your project..." rows={5} />
+                  <textarea 
+                  id="message" 
+                  value={formData.message} 
+                  name="message" onChange={handleChange} 
+                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300" 
+                  placeholder="Tell me about your project..." 
+
+                  rows={5} />
                 </div>
 
-                <button type="submit" className="">
+                <button type="submit" className="w-full px-6 py-3 bg-linear-to-r from-primary/10 to-primary text-white font-medium rounded-xl hover:shadow-2xl hover:shadow/30 transition-all duration-300 flex items-center justify-center gap-2 group">
                   <span>Send Message</span>
-                  <Send className="" />
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
 
                 {status.message && (
