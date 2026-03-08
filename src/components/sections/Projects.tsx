@@ -154,8 +154,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* https://youtu.be/UQVB8fe_b4E?si=JDQJPTLJQYoN5IeF&t=5364 */}
-
             {/* Navigation Arrows */}
             {filteredProjects.length > 3 && (
               <>

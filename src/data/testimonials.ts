@@ -25,7 +25,33 @@ export const testimonials =
     "company": "StartupHub",
     "image": "/images/testimonials/person3.jpg",
     "quote": "Alex transformed our vision into reality with a stunning, user-friendly interface. The project exceeded expectations.",
+       "rating": 5
+  },
+  {
+    "id": 4,
+    "name": "Jonathan Weber",
+    "role": "Lead Software Engineer",
+    "company": "CloudSphere Solutions",
+    "image": "/images/testimonials/person4.jpg",
+    "quote": "Alex’s backend expertise was crucial for optimizing our API performance. The improvements were immediate and measurable.",
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "name": "Amina Hassan",
+    "role": "CEO",
+    "company": "NovaCommerce",
+    "image": "/images/testimonials/person5.jpg",
+    "quote": "Our e‑commerce migration went flawlessly thanks to Alex. Professional, fast, and highly reliable.",
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "name": "Louis Bernard",
+    "role": "Project Director",
+    "company": "HexaTech Labs",
+    "image": "/images/testimonials/person6.jpg",
+    "quote": "Alex brought clarity and structure to a very complex project. His technical leadership made all the difference.",
     "rating": 5
   }
 ]
-
