@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Code, Menu, X } from 'lucide-react';
 import { NAV_LINKS, PERSONAL_INFO } from '@utils/constants';
 import { useScrollSpy, scrollToSection } from '@hooks/useScrollSpy';
+import { SECTION_OFFSETS } from '@utils/offsets';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -21,7 +22,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   const handleNavClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+    const offset = SECTION_OFFSETS[sectionId] || 110;
+    scrollToSection(sectionId, offset, 600);
     setIsMenuOpen(false);
   };
 

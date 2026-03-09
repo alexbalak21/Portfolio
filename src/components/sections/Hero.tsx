@@ -50,7 +50,7 @@ const Hero = () => {
 
             <FadeIn delay={300}>
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection("contact", SECTION_OFFSETS['contact'] || 110, 600)}
                 className="inline-flex items-center gap-0 mb-12 group"
               >
                 <div className="relative z-10 bg-white text-[#212121] rounded-[17px] px-6 py-3 text-base font-medium border border-white hover:bg-white/90 transition-all duration-300 group-hover:translate-y-[-2px]">
@@ -120,7 +120,7 @@ const Hero = () => {
         </div>
       </div>
       {/* Scroll Indicator */}
-      <button onClick={()=> scrollToSection('about')}
+      <button onClick={()=> scrollToSection('about', SECTION_OFFSETS['about'] || 110, 600)}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <ChevronDown className="w-8 h-8 text-primary" />
       </button>
