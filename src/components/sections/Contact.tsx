@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../../utils/constants';
 import FadeIn from '../animations/FadeIn';
-import { Github, Linkedin, Mail, MessageSquare, Send, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, MessageSquare, Send, Twitter } from 'lucide-react';
 
 const Contact = () => {
 
@@ -88,100 +88,134 @@ return (
           <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">Let's Work Together</h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
         </div>
-        </FadeIn>
+      </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <FadeIn delay={100}>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
-                    Name
-                  </label>
-                  <input type="text" id="name" value={formData.name} name="name" onChange={handleChange} 
-                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300" 
+      <div className="grid md:grid-cols-2 gap-12">
+        <FadeIn delay={100}>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+                  Name
+                </label>
+                <input type="text" id="name" value={formData.name} name="name" onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                   placeholder="Your name" />
-                </div>
+              </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
-                    Email
-                  </label>
-                  <input 
-                  type="email" 
-                  id="email" 
-                  value={formData.email} 
-                  name="email" 
-                  onChange={handleChange} 
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  name="email"
+                  onChange={handleChange}
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300" 
-                  />
-                </div>
+                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
+                />
+              </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
-                    Message
-                  </label>
-                  <textarea 
-                  id="message" 
-                  value={formData.message} 
-                  name="message" onChange={handleChange} 
-                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300" 
-                  placeholder="Tell me about your project..." 
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  name="message" onChange={handleChange}
+                  className="w-full px-4 py-3 bg-white/5 border broder-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
+                  placeholder="Tell me about your project..."
 
                   rows={5} />
-                </div>
-
-                <button type="submit" className="w-full px-6 py-3 bg-linear-to-r from-primary/10 to-primary text-white font-medium rounded-xl hover:shadow-2xl hover:shadow/30 transition-all duration-300 flex items-center justify-center gap-2 group">
-                  <span>Send Message</span>
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-
-                {status.message && (
-                  <div className={`p-4 rounded-xl ${status.type === 'success' 
-                  ? 'text-green-500/10 border border-green-500/20 text-green-400' 
-                  : 'text-red-500/10 border border-red-500/20 text-red-400'}`}>
-                    {status.message}
-                  </div>
-                )}
-
-              </form>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={200}>
-            <div className="">
-              <div>
-                <h3>Let's Connect</h3>
               </div>
-              <p className="">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
-            </div>
-            <div className="">
-                <div className="">
-                  <div className="">
-                    <div className="">
-                      <Mail className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="">
-                      <p className="">Email</p>
-                      <a href={`mailto:${PERSONAL_INFO.email}`} className="text-primary hover:underline">
-                        {PERSONAL_INFO.email}
-                      </a>
-                    </div>
-                  </div>
 
+              <button type="submit" className="w-full px-6 py-3 bg-linear-to-r from-primary/10 to-primary text-white font-medium rounded-xl hover:shadow-2xl hover:shadow/30 transition-all duration-300 flex items-center justify-center gap-2 group">
+                <span>Send Message</span>
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
 
+              {status.message && (
+                <div className={`p-4 rounded-xl ${status.type === 'success'
+                  ? 'text-green-500/10 border border-green-500/20 text-green-400'
+                  : 'text-red-500/10 border border-red-500/20 text-red-400'}`}>
+                  {status.message}
                 </div>
+              )}
+
+            </form>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={200}>
+          <div className="">
+            <div>
+              <h3>Let's Connect</h3>
             </div>
-          </FadeIn>
-          {/* https://youtu.be/UQVB8fe_b4E?si=kEcfmQ1QelwFHh-k&t=7725 */}
+            <p className="">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+          </div>
+          <div className="">
+            <div className="">
+              <div className="">
+                <div className="">
+                  <Mail className="w-5 h-5 text-primary" />
+                </div>
+                <div className="">
+                  <p className="">Email</p>
+                  <a href={`mailto:${PERSONAL_INFO.email}`} className="text-primary hover:underline">
+                    {PERSONAL_INFO.email}
+                  </a>
+                </div>
+              </div>
 
-        </div>
+              <div className="">
+                <div className="" />
+              </div>
 
+              <div>
+                <div>
+                  <div>
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="">
+                    <p className="">Location</p>
+                    <p className="">{PERSONAL_INFO.location}</p>
+                  </div>
+                </div>
+                <div />
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-4">
+                {Object.entries(SOCIAL_LINKS)
+                  .slice(0, 3)
+                  .map(([platform, url]) => {
+                    const Icon = socialIcons[platform as keyof typeof socialIcons];
+                    if (!Icon) return null;
+
+                    return (
+                      <a
+                        key={platform}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </a>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+        {/* https://youtu.be/UQVB8fe_b4E?si=QaC7iLXuKG8LX-Vn&t=7786 */}
+
+      </div>
     </div>
-
-
-
   </section>
 );
 
