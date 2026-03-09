@@ -1,6 +1,7 @@
 import Navbar from "@components/layout/Navbar"
 import About from "@components/sections/About"
 import Contact from "@components/sections/Contact";
+import Footer from "@components/sections/Footer";
 import Hero from "@components/sections/Hero"
 import Projects from "@components/sections/Projects";
 import Services from "@components/sections/Services";
@@ -29,7 +30,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black pb-[100vh]">
       <Navbar />
       <main>
         <Hero />
@@ -38,9 +39,9 @@ export default function App() {
         <Projects />
         <Services />
         <Testimonials />
-        < Contact />
-        <div style={{ height: "2000px" }} />
+        <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
