@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PERSONAL_INFO, STATS } from "@utils/constants";
 import { scrollToSection } from "@hooks/useScrollSpy";
+import { SECTION_OFFSETS } from "@utils/offsets";
 import FadeIn from "@components/animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
 import { ChevronDown, Star } from "lucide-react";
@@ -27,7 +28,7 @@ const Hero = () => {
           <div className="flex flex-col gap-6">
 
             <FadeIn delay={0}>
-              <div className="inline-flex items-center gap-2.5 px-[18px] py-[11px] mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
+              <div className="inline-flex items-center gap-2.5 px-4.5 py-2.75 mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
                 <Star className="w-4 h-4 text-white fill-white" />
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
                   {PERSONAL_INFO.title} • Based in {PERSONAL_INFO.location}
@@ -42,9 +43,9 @@ const Hero = () => {
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="text-lg text-white/70 max-w-[550px] mb-8">
+              <p className="text-lg text-white/70 max-w-137.5 mb-8">
                 Building modern, scalable web applications with clean UI,
-                optimized performance, and production‑ready architecture.
+                optimized performance, and production-ready architecture.
               </p>
             </FadeIn>
 
