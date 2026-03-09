@@ -21,7 +21,7 @@ const Hero = () => {
       <RadialGradientBackground variant="hero" />
 
       {/* Content Container */}
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
           {/* Left Column */}
