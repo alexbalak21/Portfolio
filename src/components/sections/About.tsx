@@ -4,9 +4,16 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiNodedotjs,
-  SiMongodb
+  SiMongodb,
+  SiSpringboot,
+  SiPostgresql,
+  SiDocker,
+  SiKubernetes,
+  SiGithub,
+  SiDjango,
   
 } from "react-icons/si";
+import { FaJava, FaPython } from "react-icons/fa";
 import { FaCode, FaDatabase } from "react-icons/fa6";
 import { PERSONAL_INFO, ABOUT_STATS } from "@utils/constants.en";
 
@@ -18,13 +25,17 @@ import { ABOUT_DATA } from "@data/english/about.en";
 
 const About = () => {
   const skills = [
-    { name: "React.js", icon: SiReact, color: "#61DAFB" },
-    { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+    { name: "Java", icon: FaJava, color: "#61DAFB" },
+    { name: "Python", icon: FaPython, color: "#3776AB" },
+    // { name: "Spring Boot", icon: SiSpringboot, color: "#61DAFB" },
+    // { name: "Django", icon: SiDjango, color: "#092E20" },
     { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    // { name: "React", icon: SiReact, color: "#61DAFB" },
     { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-    { name: "MongoDB", icon: SiMongodb, color: "#47A248" }
-  ];
+    // { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "Docker", icon: SiDocker, color: "#2496ED" },
+    { name: "GitHub", icon: SiGithub, color: "#211F20" }
+  ]
 
   return (
     <section id="about" className="relative py-20 bg-black overflow-hidden">
