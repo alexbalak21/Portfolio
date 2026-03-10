@@ -121,8 +121,8 @@ const Hero = () => {
         </div>
       </div>
       {/* Scroll Indicator */}
-      <button onClick={()=> scrollToSection('about', SECTION_OFFSETS['about'] || 110, 600)}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <button onClick={()=> scrollToSection('about', SECTION_OFFSETS['about'])}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-100">
         <ChevronDown className="w-8 h-8 text-primary" />
       </button>
     </section>
