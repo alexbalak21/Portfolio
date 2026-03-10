@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Code, Menu, X } from 'lucide-react';
-import { NAV_LINKS, PERSONAL_INFO } from '@utils/constants';
+import { NAV_LINKS, PERSONAL_INFO } from '@utils/constants.en';
 import { useScrollSpy, scrollToSection } from '@hooks/useScrollSpy';
 import { SECTION_OFFSETS } from '@utils/offsets';
 

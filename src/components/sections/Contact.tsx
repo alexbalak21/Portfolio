@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PERSONAL_INFO, SOCIAL_LINKS } from '@utils/constants';
+import { PERSONAL_INFO, SOCIAL_LINKS } from '@utils/constants.en';
 import FadeIn from "@components/animations/FadeIn";
 import { Github, Linkedin, Mail, MapPin, MessageSquare, Send, Twitter } from 'lucide-react';
 

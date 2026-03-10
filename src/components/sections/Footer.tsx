@@ -1,7 +1,7 @@
 import FadeIn from "@components/animations/FadeIn"
 import { scrollToSection } from "@hooks/useScrollSpy"
 import { SECTION_OFFSETS } from "@utils/offsets"
-import { NAV_LINKS, PERSONAL_INFO, SOCIAL_LINKS } from "@utils/constants"
+import { NAV_LINKS, PERSONAL_INFO, SOCIAL_LINKS } from "@utils/constants.en"
 
 import { Dribbble, Github, Heart, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
 

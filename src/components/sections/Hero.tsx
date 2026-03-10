@@ -1,4 +1,4 @@
-import { PERSONAL_INFO, STATS } from "@utils/constants";
+import { STATS } from "@utils/constants.en";
 import { scrollToSection } from "@hooks/useScrollSpy";
 import { SECTION_OFFSETS } from "@utils/offsets";
 import FadeIn from "@components/animations/FadeIn";
@@ -11,7 +11,7 @@ import {
   SiNodedotjs,
   SiMongodb,
 } from "react-icons/si";
-import { HERO_INFO } from "@data/hero";
+import { HERO_INFO } from "@data/hero.en";
 
 
 

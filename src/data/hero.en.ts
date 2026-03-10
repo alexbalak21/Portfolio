@@ -1,4 +1,4 @@
-const short_title = "Spring Boot & Django Developer, React Enthusiast"
+const short_title = "Spring Boot & Flask Developer, React Enthusiast"
 const title = "Full Stack Developer Java, Python, TypeScript";
 const location = "Lyon, France";
 const name = "Alex Balak";

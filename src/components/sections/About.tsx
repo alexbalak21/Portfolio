@@ -6,7 +6,7 @@ import {
   SiNodedotjs,
   SiMongodb
 } from "react-icons/si";
-import { PERSONAL_INFO, ABOUT_STATS } from "@utils/constants";
+import { PERSONAL_INFO, ABOUT_STATS } from "@utils/constants.en";
 
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";
 import FadeIn from "@components/animations/FadeIn";
