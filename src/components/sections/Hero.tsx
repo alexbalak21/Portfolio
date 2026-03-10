@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PERSONAL_INFO, STATS } from "@utils/constants";
 import { scrollToSection } from "@hooks/useScrollSpy";
 import { SECTION_OFFSETS } from "@utils/offsets";
