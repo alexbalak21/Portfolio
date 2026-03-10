@@ -1,16 +1,5 @@
 import { ExternalLink, Github, TrendingUp } from "lucide-react";
-
-type Project = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  technologies: string[];
-  metrics?: string;
-  demoUrl?: string;
-  githubUrl?: string;
-};
+import type { Project } from "@types";
 
 interface ProjectCardProps {
   project: Project;

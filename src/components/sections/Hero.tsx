@@ -1,4 +1,4 @@
-import { STATS } from "@utils/constants.en";
+import { STATS } from "@data/english/hero.en";
 import { scrollToSection } from "@hooks/useScrollSpy";
 import { SECTION_OFFSETS } from "@utils/offsets";
 import FadeIn from "@components/animations/FadeIn";
@@ -10,8 +10,14 @@ import {
   SiTailwindcss,
   SiNodedotjs,
   SiMongodb,
+  SiSpring,
+  SiPython,
+  SiTypescript,
+  SiGithub
+
 } from "react-icons/si";
-import { HERO_INFO } from "@data/hero.en";
+
+import { HERO_INFO } from "@data/english/hero.en";
 
 
 
@@ -92,23 +98,23 @@ const Hero = () => {
                   <FadeIn delay={500}>
                     <div className="flex items-center gap-4 bg-black/40 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3">
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <SiReact className="w-full h-full text-primary" />
+                        <SiSpring className="w-full h-full text-primary" />
                       </div>
                       
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <SiNextdotjs className="w-full h-full text-primary" />
+                        <SiReact className="w-full h-full text-primary" />
                       </div>
 
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <SiNodedotjs className="w-full h-full text-primary" />
+                        <SiPython className="w-full h-full text-primary" />
                       </div>
 
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <SiTailwindcss className="w-full h-full text-primary" />
+                        <SiTypescript className="w-full h-full text-primary" />
                       </div>
 
                       <div className="w-6 h-6 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <SiMongodb className="w-full h-full text-primary" />
+                        <SiGithub className="w-full h-full text-primary" />
                       </div>
 
                       </div>

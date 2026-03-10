@@ -1,4 +1,6 @@
-export const services = 
+import type { Service } from "@types";
+
+export const services: Service[] = 
 [
   {
     "id": 1,
@@ -36,4 +38,4 @@ export const services =
     "title": "Code Review & Consulting",
     "description": "Providing expert code reviews, architecture consulting, and technical guidance to improve your development workflow."
   }
-]
+] as Service[]

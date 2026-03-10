@@ -1,4 +1,6 @@
-export const skills = [
+import type { Skill } from "@types";
+
+export const skills: Skill[] = [
   {
     id: 1,
     name: "React.js",

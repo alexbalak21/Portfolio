@@ -22,11 +22,7 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"],
-  "compilerOptions": {
-    // ...existing options...
+    "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -35,7 +31,10 @@
       "@features/*": ["src/features/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@types": ["src/types/index.ts"],
+      "@types/*": ["src/types/*"]
     }
-  }
+  },
+  "include": ["src"]
 }

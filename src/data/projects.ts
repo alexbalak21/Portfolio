@@ -1,5 +1,7 @@
 
-export const projects = [
+import type { Project } from "@types";
+
+export const projects: Project[] = [
   {
     id: 1,
     title: "E-Commerce Platform",
@@ -168,4 +170,4 @@ export const projects = [
 ];
 
 
-export const categories = ['All', 'Web Apps', 'UI Components', 'Full Stack'];
+export const categories: string[] = ['All', 'Web Apps', 'UI Components', 'Full Stack'];

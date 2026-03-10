@@ -1,4 +1,4 @@
-import type { PersonalInfo, SocialLinks, StatItem, NavLink } from './types';
+import type { PersonalInfo, SocialLinks, StatItem, NavLink } from "@types";
 
 export const PERSONAL_INFO: PersonalInfo = {
   name: 'Alex Johnson',
