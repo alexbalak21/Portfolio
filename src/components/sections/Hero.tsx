@@ -81,7 +81,7 @@ const Hero = () => {
                   <div className="absolute inset-1 bg-linear-to-r from-primary/10 via-primary/10 to-primary animate-spin-slow rounded-2xl"></div>
                 </div>
                 {/* Image Container */}
-                <div className="relative rounded-2xl overflow-hidden m-[1px] h-[calc(100%-2px)]">
+                <div className="relative rounded-2xl overflow-hidden m-px h-[calc(100%-2px)]">
                   <img
                     src="/images/portrait.jpg" alt="Developer at work" className="w-full h-full object-cover" />
                 </div>

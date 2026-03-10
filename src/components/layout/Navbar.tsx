@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
               onClick={() =>
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
-              className="text-2xl font-bold bg-gradient-to-r from-primary via-primary/50 to-primary/30 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+              className="text-2xl font-bold bg-linear-to-r from-primary via-primary/50 to-primary/30 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
               aria-label="home"
             >
               {PERSONAL_INFO.name.split(' ')[0]}
