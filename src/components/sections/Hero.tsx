@@ -3,18 +3,14 @@ import { scrollToSection } from "@hooks/useScrollSpy";
 import { SECTION_OFFSETS } from "@utils/offsets";
 import FadeIn from "@components/animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
-import { ChevronDown, Star } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { FaDatabase } from "react-icons/fa";
 import {
   SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiMongodb,
   SiSpring,
   SiPython,
   SiTypescript,
-  SiGithub
-
+  SiGithub,
 } from "react-icons/si";
 
 import { HERO_INFO } from "@data/english/hero.en";
@@ -35,7 +31,7 @@ const Hero = () => {
 
             <FadeIn delay={0}>
               <div className="inline-flex items-center gap-2.5 px-4.5 py-2.75 mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
-                <Star className="w-4 h-4 text-white fill-white" />
+                <FaDatabase className="w-4 h-4 text-white fill-white" />
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
                   {HERO_INFO.short_title} • Based in {HERO_INFO.location}
                 </span>
