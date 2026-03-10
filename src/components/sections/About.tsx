@@ -183,11 +183,11 @@ const About = () => {
         <FadeIn delay={500}>
           <div className="flex flex-col items-center gap-8">
             <div className="text-center max-w-2xl">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Tech Stack & Expertise
+              <h3 className="text-3xl text-white mb-2">
+                {ABOUT_DATA.SKILLS_TITLE}
               </h3>
-              <p className="text-sm text-white/60">
-                Technologies I work with to build amazing pro
+              <p className="text-md text-white/60">
+                {ABOUT_DATA.SKILLS_DESCRIPTION}
               </p>
             </div>
 

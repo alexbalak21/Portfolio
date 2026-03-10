@@ -50,6 +50,9 @@ const STATS_ITEMS = [
 ]
 
 const DOWNLOAD_CV = "Download CV";
+
+const SKILLS_TITLE = "Tech Stack & Technologies";
+const SKILLS_DESCRIPTION = "Languages and technologies I work with to build performant and scalable applications.";
  
 export const ABOUT_DATA = {
     presentation_title,
@@ -60,7 +63,9 @@ export const ABOUT_DATA = {
     performance_card,
     STATS_ROW,
     STATS_ITEMS,
-    DOWNLOAD_CV
+    DOWNLOAD_CV,
+    SKILLS_TITLE,
+    SKILLS_DESCRIPTION
 }
 
 
