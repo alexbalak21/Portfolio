@@ -11,6 +11,7 @@ import {
   SiNodedotjs,
   SiMongodb,
 } from "react-icons/si";
+import { HERO_INFO } from "@data/hero";
 
 
 
@@ -30,21 +31,20 @@ const Hero = () => {
               <div className="inline-flex items-center gap-2.5 px-4.5 py-2.75 mb-8 bg-linear-to-r from-primary/10 via-primary/15 to-primary/20 border border-primary/20 rounded-full">
                 <Star className="w-4 h-4 text-white fill-white" />
                 <span className="text-xs md:text-sm text-white tracking-[1.2px]">
-                  {PERSONAL_INFO.title} • Based in {PERSONAL_INFO.location}
+                  {HERO_INFO.short_title} • Based in {HERO_INFO.location}
                 </span>
               </div>
             </FadeIn>
 
             <FadeIn delay={100}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal Itext-white mb-6 leading-tight">
-                React.js Developer Portfolio
+                {HERO_INFO.title}
               </h1>
             </FadeIn>
 
             <FadeIn delay={200}>
               <p className="text-lg text-white/70 max-w-137.5 mb-8">
-                Building modern, scalable web applications with clean UI,
-                optimized performance, and production-ready architecture.
+                {HERO_INFO.description}
               </p>
             </FadeIn>
 

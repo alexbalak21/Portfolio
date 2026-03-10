@@ -34,7 +34,8 @@
       "@app/*": ["src/app/*"],
       "@features/*": ["src/features/*"],
       "@utils/*": ["src/utils/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@data/*": ["src/data/*"]
     }
   }
 }

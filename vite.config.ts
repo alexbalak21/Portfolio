@@ -13,6 +13,7 @@ export default defineConfig({
       "@features": resolve(__dirname, "src/features"),
       "@utils": resolve(__dirname, "src/utils"),
       "@hooks": resolve(__dirname, "src/hooks"),
+      "@data": resolve(__dirname, "src/data"),
     },
   },
 })

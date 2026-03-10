@@ -1,5 +1,13 @@
-const short_title = "Java, Python Developer, React.js Enthusiast";
+const short_title = "Spring Boot & Django Developer, React Enthusiast"
+const title = "Full Stack Developer Java, Python, TypeScript";
 const location = "Lyon, France";
 const name = "Alex Balak";
-const title = "Spring Boot & React Full Stack Developer";
 const description = "Passionate developer fully dedicated to creating modern, scalable web applications using clean architecture, modern UI, and the latest technologies.";
+
+export const HERO_INFO = {
+    short_title,
+    location,
+    name,
+    title,
+    description
+}

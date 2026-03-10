@@ -42,3 +42,5 @@ export const NAV_LINKS: NavLink[] = [
   { id: 'testimonials', label: 'Testimonials' },
   { id: 'contact', label: 'Contact' }
 ];
+
+export const HIRE_ME_LINK = 'Hire Me';
