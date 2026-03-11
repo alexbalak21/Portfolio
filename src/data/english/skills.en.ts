@@ -1,9 +1,10 @@
 import type { SkillLevel } from "../../utils/types";
 import type { IconType } from "react-icons";
 import * as FaIcons from "react-icons/fa";
+import * as Fa6Icons from "react-icons/fa6";
 import * as SiIcons from "react-icons/si";
 
-type SkillIconName = keyof typeof FaIcons | keyof typeof SiIcons;
+type SkillIconName = keyof typeof FaIcons | keyof typeof Fa6Icons | keyof typeof SiIcons;
 
 export interface EnglishSkill {
     name: string;
@@ -12,12 +13,13 @@ export interface EnglishSkill {
 }
 
 export const categories = [
-    {title : "Languages", icon: "FaBarsProgress" },
-    {title : "Frameworks", icon: "FaWindowRestore" },
-    {title : "Tools & Others", icon: "FaToolbox" },
-] as const;
+    { title: "Languages", icon: "FaBarsProgress" },
+    { title: "Frameworks", icon: "FaWindowRestore" },
+    { title: "Technologies", icon: "FaWrench" },
+] as const satisfies ReadonlyArray<{ title: string; icon: SkillIconName }>;
 
 export type SkillCategory = (typeof categories)[number];
+export type SkillCategoryTitle = SkillCategory["title"];
 
 export const languages: EnglishSkill[] = [
     {
@@ -42,40 +44,41 @@ export const languages: EnglishSkill[] = [
     },
     {
         name: 'PHP',
-        level: 'Advanced',
+        level: 'Intermediate',
         icon: 'FaPhp',
     }
 ]
 
 export const frameworks: EnglishSkill[] = [
     {
-        name: 'Spring Boot', 
+        name: 'Spring Boot',
         level: 'Advanced',
         icon: 'SiSpring',
     },
     {
-        name: 'React.js', 
+        name: 'React.js',
         level: 'Advanced',
         icon: 'FaReact',
     },
     {
-        name: 'Django', 
-        level: 'Intermediate',
-        icon: 'SiDjango',
-    },
-    {
-        name: 'Flask', 
-        level: 'Intermediate',
+        name: 'Flask',
+        level: 'Advanced',
         icon: 'SiFlask',
     },
     {
-        name : 'Laravel',
+        name: 'Django',
+        level: 'Intermediate',
+        icon: 'SiDjango',
+    },
+
+    {
+        name: 'Laravel',
         level: 'Intermediate',
         icon: 'SiLaravel',
     },
     {
-        name: 'Next.js', 
-        level: 'Advanced',
+        name: 'Next.js',
+        level: 'Intermediate',
         icon: 'SiNextdotjs',
     }
 ]
@@ -83,13 +86,8 @@ export const frameworks: EnglishSkill[] = [
 export const tools: EnglishSkill[] = [
     {
         name: 'Git & GitHub',
-        level: 'Advanced',
+        level: 'Expert',
         icon: 'FaGithub',
-    },
-    {
-        name: "Docker",
-        level: "Intermediate",
-        icon: "FaDocker",
     },
     {
         name: 'HTML',
@@ -100,7 +98,7 @@ export const tools: EnglishSkill[] = [
         name: 'CSS',
         level: 'Expert',
         icon: 'FaCss3Alt',
-    }, 
+    },
     {
         name: 'Tailwind CSS',
         level: 'Advanced',
@@ -110,20 +108,30 @@ export const tools: EnglishSkill[] = [
         name: 'Bootstrap',
         level: 'Intermediate',
         icon: 'FaBootstrap',
-    }
+    },
+    {
+        name: "Docker",
+        level: "Intermediate",
+        icon: "FaDocker",
+    },
+    
 ]
 
 export const skills: EnglishSkill[] = [...languages, ...frameworks, ...tools];
 
-export const skillsByCategory: Record<SkillCategory, EnglishSkill[]> = {
+export const skillsByCategory: Record<SkillCategoryTitle, EnglishSkill[]> = {
     Languages: languages,
     Frameworks: frameworks,
-    "Tools & Others": tools,
+    "Technologies": tools,
 };
 
 export const usedSkillIcons: SkillIconName[] = [...new Set(skills.map((skill) => skill.icon))];
 
 export const resolveSkillIcon = (iconName: SkillIconName): IconType | undefined => {
+    if (iconName in Fa6Icons) {
+        return Fa6Icons[iconName as keyof typeof Fa6Icons] as IconType;
+    }
+
     if (iconName.startsWith("Fa")) {
         return FaIcons[iconName as keyof typeof FaIcons] as IconType;
     }

@@ -2,7 +2,7 @@ import {
   categories,
   resolveSkillIcon,
   skillsByCategory,
-  type EnglishSkill,
+  type SkillCategoryTitle,
 } from "../../data/english/skills.en";
 type SkillLevel = "Expert" | "Advanced" | "Intermediate";
 import {
@@ -12,7 +12,7 @@ import {
 import FadeIn from "../animations/FadeIn";
 
 const Skills = () => {
-  const skillCategories: Record<string, EnglishSkill[]> = skillsByCategory;
+  const skillCategories: Record<SkillCategoryTitle, typeof skillsByCategory[SkillCategoryTitle]> = skillsByCategory;
 
   // Level color
   const getLevelColor = (level: SkillLevel) => {
@@ -71,23 +71,27 @@ const Skills = () => {
         {/* Skills Categories */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {categories.map((category, categoryIndex) => (
-            <FadeIn key={category} delay={categoryIndex * 100}>
+            <FadeIn key={category.title} delay={categoryIndex * 100}>
               <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group">
                 {/* Category Title */}
                 <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
                   <div className="w-1 h-8 bg-linear-to-b from-primary/10 rounded-full"></div>
-                  <h3 className="text-xl font-medium text-white">{category}</h3>
+                  {(() => {
+                    const CategoryIcon = resolveSkillIcon(category.icon) || Code2;
+                    return <CategoryIcon className="w-5 h-5 text-white" />;
+                  })()}
+                  <h3 className="text-xl font-medium text-white">{category.title}</h3>
                 </div>
 
                 {/* Skills List */}
                 <div className="space-y-5">
-                  {skillCategories[category].map((skill) => {
+                  {skillCategories[category.title].map((skill) => {
                     if (!skill) return null;
                     const IconComponent = resolveSkillIcon(skill.icon) || Code2;
                     const proficiency = getProficiencyLevel(skill.level);
 
                     return (
-                      <div key={`${category}-${skill.name}`} className="space-y-2">
+                      <div key={`${category.title}-${skill.name}`} className="space-y-2">
                         <div className="flex items-center justify-between">
                           {/* Icon */}
                           <div className="flex items-center gap-3">
