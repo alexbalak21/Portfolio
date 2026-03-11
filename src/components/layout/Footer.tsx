@@ -2,6 +2,8 @@ import FadeIn from "@components/animations/FadeIn"
 import { scrollToSection } from "@hooks/useScrollSpy"
 import { SECTION_OFFSETS } from "@utils/offsets"
 import { NAV_LINKS, PERSONAL_INFO, SOCIAL_LINKS } from "@utils/constants.en"
+import { INFO } from "@data/english/info.en"
+import { FOOTER } from "@data/english/footer.en"
 
 import { Dribbble, Github, Heart, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
 
@@ -42,14 +44,14 @@ export default function Footer() {
 
                 {/* Email */}
                 <a
-                  href={`mailto:${PERSONAL_INFO.email}`}
+                  href={`mailto:${INFO.email}`}
                   className="group flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
                 >
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <Mail className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-white/70 text-sm group-hover:text-white transition-colors">
-                    {PERSONAL_INFO.email}
+                    {INFO.email}
                   </span>
                 </a>
 
@@ -59,7 +61,7 @@ export default function Footer() {
                     <MapPin className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-white/70 text-sm">
-                    {PERSONAL_INFO.location}
+                    {INFO.location}
                   </span>
                 </div>
 
@@ -70,7 +72,7 @@ export default function Footer() {
           {/* Column 2 — Quick Links */}
           <FadeIn delay={100}>
             <div>
-              <h4 className="text-white font-semibold mb-6 text-lg">Quick Links</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">{FOOTER.quick_links}</h4>
               <ul className="space-y-3">
                 {NAV_LINKS.map((link) => (
                   <li key={link.id}>
@@ -90,11 +92,10 @@ export default function Footer() {
           {/* Column 3 — Social */}
           <FadeIn delay={200}>
             <div>
-              <h4 className="text-white font-semibold mb-6 text-lg">Connect with me</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">{FOOTER.connect_with_me}</h4>
 
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
-                Let's connect and create something amazing together!
-                Follow me on social media or send me an email.
+                {FOOTER.connect_subtitle}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -129,7 +130,7 @@ export default function Footer() {
               </p>
 
               <p className="flex items-center gap-2 text-white/50 text-sm">
-                Built <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" /> using React, Tailwind CSS
+                {FOOTER.build_with} <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" /> {FOOTER.using} React, TypeScript, Tailwind CSS
               </p>
             </div>
           </div>
