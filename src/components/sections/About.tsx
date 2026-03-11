@@ -11,7 +11,7 @@ import { PERSONAL_INFO } from "@utils/constants.en";
 
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";
 import FadeIn from "@components/animations/FadeIn";
-import { AppWindow, Code2, Database, Download, Zap } from "lucide-react";
+import { AppWindow, Code2, Download, Zap } from "lucide-react";
 import { ABOUT_DATA } from "@data/english/about.en";
 
 const About = () => {

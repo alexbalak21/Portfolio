@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
-import { testimonials } from '../../data/testimonials';
+import { testimonials } from '../../data/english/testimonials.en';
 import FadeIn from "@components/animations/FadeIn";
 
 const Testimonials = () => {
@@ -27,14 +27,7 @@ const Testimonials = () => {
     scrollToIndex((currentIndex - 1 + testimonials.length) % testimonials.length);
   };
 
-  const testimonialStats = [
-    { value: '3x', label: 'Faster Delivery' },
-    { value: '95%', label: 'Client Satisfaction' },
-    { value: '100%', label: 'On-Time Delivery' },
-    { value: '5★', label: 'Average Rating' },
-    { value: '4.9★', label: 'Quality Score' },
-    { value: '98%', label: 'Recommendation Rate' }
-  ];
+  // ...existing code...
 
   return (
     <section id="testimonials" className="relative py-20 bg-black overflow-hidden">
@@ -72,7 +65,17 @@ const Testimonials = () => {
               style={{ scrollSnapType: "x mandatory" }}
             >
               <div className="flex">
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial: {
+                  id: number;
+                  name: string;
+                  role: string;
+                  company: string;
+                  image: string;
+                  quote: string;
+                  rating: number;
+                  label?: string;
+                  value?: string;
+                }, index: number) => (
                   <div
                     key={testimonial.id}
                     className="w-full shrink-0 px-4"
@@ -91,18 +94,20 @@ const Testimonials = () => {
                             />
 
                             {/* Stat Badge */}
-                            <div className="absolute bottom-4 left-4 right-4">
-                              <div className="bg-black/60 rounded-xl p-4 shadow-lg">
-                                <div>
-                                  <div className="text-2xl font-semibold text-primary mb-1">
-                                    {testimonialStats[index]?.value}
-                                  </div>
-                                  <div className="text-sm font-semibold text-gray-100">
-                                    {testimonialStats[index]?.label}
+                            {testimonial.value && testimonial.label && (
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <div className="bg-black/60 rounded-xl p-4 shadow-lg">
+                                  <div>
+                                    <div className="text-2xl font-semibold text-primary mb-1">
+                                      {testimonial.value}
+                                    </div>
+                                    <div className="text-sm font-semibold text-gray-100">
+                                      {testimonial.label}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            )}
                           </div>
                         </div>
 
@@ -142,7 +147,7 @@ const Testimonials = () => {
 
             {/* Pagination Dots */}
             <div className="flex items-center justify-center gap-2 mt-10">
-              {testimonials.map((_, index) => (
+              {testimonials.map((_: unknown, index: number) => (
                 <button
                   key={index}
                   onClick={() => scrollToIndex(index)}

@@ -1,5 +1,5 @@
 import FadeIn from "@components/animations/FadeIn";
-import { history } from "@data/english/expiriance.en";
+import { history, SHORT_TITLE, TITLE, DESCRIPTION} from "@data/english/experience.en";
 import { Briefcase } from "lucide-react";
 
 const Experience = () => {
@@ -25,15 +25,15 @@ const Experience = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <Briefcase className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium tracking-wider uppercase">My Journey</span>
+              <span className="text-sm text-primary font-medium tracking-wider uppercase">{SHORT_TITLE}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4 max-w-2xl mx-auto">
-              Professional Experience
+              {TITLE}
             </h2>
 
             <p className="text-lg text-white/60 max-w-xl mx-auto">
-              Building scalable solutions across different industries and technologies
+              {DESCRIPTION} 
             </p>
           </div>
         </FadeIn>
@@ -62,7 +62,7 @@ const Experience = () => {
                       <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-primary transition-colors duration-300 mb-2">
                         {item.role} at {item.organisation}
                       </h3>
-                      <p className="text-sm md:text-base text-primary/80 font-medium">
+                      <p className="text-sm md:text-base text-primary/80 font-medium group-hover:text-white">
                         {item.startDate} — {item.endDate}
                       </p>
                     </div>
@@ -72,7 +72,7 @@ const Experience = () => {
                       {item.experiences.map((experience, expIndex) => (
                         <li
                           key={expIndex}
-                          className="text-sm md:text-base text-white/70 flex items-start gap-3"
+                          className="text-sm md:text-base text-white/70 flex items-start gap-3 group-hover:text-white/80"
                         >
                           <span className="text-primary shrink-0">▸</span>
                           <span>{experience}</span>

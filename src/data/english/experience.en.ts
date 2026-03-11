@@ -5,6 +5,10 @@ import cgi from "/images/history/cgi.png";
 import flyit from "/images/history/flyit.png";
 import armee from "/images/history/armee.png";
 
+export const SHORT_TITLE = "My Journey";
+export const TITLE = "Professional Experience";
+export const DESCRIPTION = "Building scalable solutions across different industries and technologies";
+
 export const history = [
   {
     role: "Full Stack Developer",
