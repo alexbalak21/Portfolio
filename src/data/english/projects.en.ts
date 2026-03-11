@@ -1,14 +1,20 @@
 import type { Project } from "@types";
 
+const pill_title = "My Projects";
+const TITLE = "Featured Work";
+const description = "Explore a selection of my most impactful projects, showcasing my expertise in Java, Python, TypeScript, and modern web development. Each project highlights my commitment to clean architecture, scalability, and user-centric design.";
+const desc_exemple = "A curated selection of projects showcasing my experience across development, design, automation, and digital strategy."
+
+
 export const projects: Project[] = [
-   {
+  {
     id: 1,
     title: "Issue Tracker / Support Portal App",
     description: "A full-stack modern Support Portal. Users can submit issues through a clean and intuitive interface, support agents can respond via an integrated ticket‑based conversation system, and managers maintain full oversight with dedicated dashboards, graphs, and performance statistics.",
     image: "/images/projects/support-portal.jpg",
     category: "Full Stack",
-    technologies: ["Spring Boot", "PostgreSQL", "React", "Tailwind"],
-    metrics: "Full Deployed Application on Render",
+    technologies: ["Spring Boot", "PostgreSQL", "React", "TypeScript", "Tailwind"],
+    metrics: "Full Production-Ready Application",
     demoUrl: "https://suppurt-portal.onrender.com",
     githubUrl: "https://github.com/alexbalak21/Suppurt-Portal"
   },
@@ -23,7 +29,7 @@ export const projects: Project[] = [
     demoUrl: "https://notes-app.alwaysdata.net/",
     githubUrl: "https://github.com/alexbalak21/Notes-App"
   },
-   {
+  {
     id: 3,
     title: "E-Commerce Platform",
     description: "A modern e-commerce website built with HTML, CSS, and JavaScript.",
@@ -35,12 +41,23 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/alexbalak21/E-commece-Shop"
   },
   {
+    id: 4,
+    title: "Portfolio Website",
+    description: "Personal portfolio website with interactive animations and responsive design.",
+    image: "/images/projects/Project4.jpg",
+    category: "Web Apps",
+    technologies: ["React", "TypeScript", "Framer Motion"],
+    metrics: "300+ daily visitors",
+    demoUrl: "https://timetoprogram.com/projects",
+    githubUrl: "https://github.com"
+  },
+  {
     id: 5,
-    title: "To-Do List App",
-    description: "A simple, clean, and efficient ToDo List application built with vanilla JavaScript.",
+    title: "UI Component Library",
+    description: "Reusable UI components for rapid prototyping and consistent design.",
     image: "/images/projects/Project5.jpg",
     category: "UI Components",
-    technologies: ["HTML5", "CSS3", "JavaScript", "SQLite"],
+    technologies: ["React", "Storybook", "Tailwind"],
     metrics: "Used in 10+ projects",
     demoUrl: "https://timetoprogram.com/projects",
     githubUrl: "https://github.com"
