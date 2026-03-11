@@ -55,7 +55,7 @@ const Hero = () => {
                 onClick={() => scrollToSection("contact", SECTION_OFFSETS['contact'] || 110, 600)}
                 className="inline-flex items-center gap-0 mb-12 group"
               >
-                <div className="relative z-10 bg-white text-[#212121] rounded-[17px] px-6 py-3 text-base font-medium border border-white hover:bg-white/90 transition-all duration-300 group-hover:translate-y-[-2px]">
+                <div className="relative z-10 bg-white text-[#212121] rounded-[17px] px-6 py-3 text-base font-medium border border-white hover:bg-white/90 transition-all duration-300 group-hover:translate-y-0.5">
                   Get in Touch
                 </div>
               </button>

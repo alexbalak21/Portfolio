@@ -3,6 +3,7 @@ import kardol from "/images/history/kardol.png";
 import taqt from "/images/history/taqt.png";
 import cgi from "/images/history/cgi.png";
 import flyit from "/images/history/flyit.png";
+import armee from "/images/history/armee.png";
 
 export const history = [
   {
@@ -45,4 +46,12 @@ export const history = [
     experiences: ["Coded the company website", "Improved load time & maintainability"],
     imageSrc: flyit,
   },
+  {
+    role: "Helicopter Support Engineer",
+    organisation: "French Army",
+    startDate: "Mar, 2010",
+    endDate: "Jul, 2021",
+    experiences: ["Maintained helicopter systems", "Provided technical support", "Conducted safety inspections"],
+    imageSrc: armee,
+  }
 ]
