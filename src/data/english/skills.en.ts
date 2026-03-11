@@ -1,4 +1,25 @@
-const languages = [
+import type { SkillLevel } from "../../utils/types";
+import type { IconType } from "react-icons";
+import * as FaIcons from "react-icons/fa";
+import * as SiIcons from "react-icons/si";
+
+type SkillIconName = keyof typeof FaIcons | keyof typeof SiIcons;
+
+export interface EnglishSkill {
+    name: string;
+    level: SkillLevel;
+    icon: SkillIconName;
+}
+
+export const categories = [
+    {title : "Languages", icon: "FaBarsProgress" },
+    {title : "Frameworks", icon: "FaWindowRestore" },
+    {title : "Tools & Others", icon: "FaToolbox" },
+] as const;
+
+export type SkillCategory = (typeof categories)[number];
+
+export const languages: EnglishSkill[] = [
     {
         name: 'Java',
         level: 'Advanced',
@@ -17,16 +38,16 @@ const languages = [
     {
         name: 'TypeScript',
         level: 'Intermediate',
-        icon: 'FaTs',
+        icon: 'SiTypescript',
     },
     {
-        name: 'php',
+        name: 'PHP',
         level: 'Advanced',
         icon: 'FaPhp',
     }
 ]
 
-const frameworks = [
+export const frameworks: EnglishSkill[] = [
     {
         name: 'Spring Boot', 
         level: 'Advanced',
@@ -59,7 +80,7 @@ const frameworks = [
     }
 ]
 
-const tools = [
+export const tools: EnglishSkill[] = [
     {
         name: 'Git & GitHub',
         level: 'Advanced',
@@ -92,4 +113,24 @@ const tools = [
     }
 ]
 
-export const skills = [...languages, ...frameworks, ...tools];
+export const skills: EnglishSkill[] = [...languages, ...frameworks, ...tools];
+
+export const skillsByCategory: Record<SkillCategory, EnglishSkill[]> = {
+    Languages: languages,
+    Frameworks: frameworks,
+    "Tools & Others": tools,
+};
+
+export const usedSkillIcons: SkillIconName[] = [...new Set(skills.map((skill) => skill.icon))];
+
+export const resolveSkillIcon = (iconName: SkillIconName): IconType | undefined => {
+    if (iconName.startsWith("Fa")) {
+        return FaIcons[iconName as keyof typeof FaIcons] as IconType;
+    }
+
+    if (iconName.startsWith("Si")) {
+        return SiIcons[iconName as keyof typeof SiIcons] as IconType;
+    }
+
+    return undefined;
+};

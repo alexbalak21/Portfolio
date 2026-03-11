@@ -1,53 +1,18 @@
-import { skills } from "../../data/skills";
+import {
+  categories,
+  resolveSkillIcon,
+  skillsByCategory,
+  type EnglishSkill,
+} from "../../data/english/skills.en";
 type SkillLevel = "Expert" | "Advanced" | "Intermediate";
 import {
   Code2,
-  FileCode,
-  FileType,
-  Zap,
-  Server,
-  GitBranch,
-  Database,
-  Globe,
-  Sparkles,
   Wrench,
 } from "lucide-react";
-const iconMap = {
-  Code2,
-  FileCode,
-  FileType,
-  Zap,
-  Server,
-  GitBranch,
-  Database,
-  Globe,
-};
 import FadeIn from "../animations/FadeIn";
 
 const Skills = () => {
-  // Categorize skills
-  const skillCategories = {
-    "Languages": [
-      skills.find((s) => s.name === "React.js"),
-      skills.find((s) => s.name === "JavaScript"),
-      skills.find((s) => s.name === "TypeScript"),
-      skills.find((s) => s.name === "Next.js"),
-      skills.find((s) => s.name === "Tailwind CSS"),
-      skills.find((s) => s.name === "Redux"),
-    ].filter(Boolean),
-
-    "Backend & APIs": [
-      skills.find((s) => s.name === "Node.js"),
-      skills.find((s) => s.name === "REST APIs"),
-    ].filter(Boolean),
-
-    "Tools & Others": [
-      skills.find((s) => s.name === "Git & GitHub"),
-      skills.find((s) => s.name === "Responsive Design"),
-      skills.find((s) => s.name === "Figma"),
-      skills.find((s) => s.name === "Vite"),
-    ].filter(Boolean),
-  };
+  const skillCategories: Record<string, EnglishSkill[]> = skillsByCategory;
 
   // Level color
   const getLevelColor = (level: SkillLevel) => {
@@ -105,70 +70,64 @@ const Skills = () => {
 
         {/* Skills Categories */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {Object.entries(skillCategories).map(
-            ([category, categorySkills], categoryIndex) => (
-              <FadeIn key={category} delay={categoryIndex * 100}>
-                <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group">
-                  {/* Category Title */}
-                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                    <div className="w-1 h-8 bg-linear-to-b from-primary/10 rounded-full"></div>
-                    <h3 className="text-xl font-medium text-white">{category}</h3>
-                  </div>
+          {categories.map((category, categoryIndex) => (
+            <FadeIn key={category} delay={categoryIndex * 100}>
+              <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group">
+                {/* Category Title */}
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                  <div className="w-1 h-8 bg-linear-to-b from-primary/10 rounded-full"></div>
+                  <h3 className="text-xl font-medium text-white">{category}</h3>
+                </div>
 
-                  {/* Skills List */}
-                  <div className="space-y-5">
-                    {categorySkills.map((skill) => {
-                      if (!skill) return null;
-                      const IconComponent = iconMap[skill.icon as keyof typeof iconMap] || Code2;
-                      const proficiency = getProficiencyLevel(skill.level);
+                {/* Skills List */}
+                <div className="space-y-5">
+                  {skillCategories[category].map((skill) => {
+                    if (!skill) return null;
+                    const IconComponent = resolveSkillIcon(skill.icon) || Code2;
+                    const proficiency = getProficiencyLevel(skill.level);
 
-                      return (
-                        <div key={skill.id} className="space-y-2">
-                          <div className="flex items-center justify-between">
-                            {/* Icon */}
-                            <div className="flex items-center gap-3">
-                              <div className="p-2 bg-white/5 rounded-lg">
-                                <IconComponent className="w-5 h-5 text-primary" />
-                              </div>
-                            </div>
-
-                            {/* Info */}
-                            <div>
-                              <div className="text-sm font-medium text-white">
-                                {skill.name}
-                              </div>
-                              <div className="text-xs text-white/50">
-                                {skill.experience}
-                              </div>
-
-                              <span
-                                className={`text-xs px-2 py-1 rounded-full border ${getLevelColor(
-                                  skill.level as SkillLevel
-                                )}`}
-                              >
-                                {skill.level}
-                              </span>
+                    return (
+                      <div key={`${category}-${skill.name}`} className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          {/* Icon */}
+                          <div className="flex items-center gap-3">
+                            <div className="p-2 bg-white/5 rounded-lg">
+                              <IconComponent className="w-5 h-5 text-primary" />
                             </div>
                           </div>
 
-                          {/* Proficiency Bar */}
-                          <div className="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
-                            <div
-                              className="absolute top-0 left-0 h-full bg-linear-to-r from-primary/10 to-primary/80 rounded-full transition-all duration-1000 ease-out"
-                              style={{ width: `${proficiency}%` }}
-                            ></div>
+                          {/* Info */}
+                          <div>
+                            <div className="text-sm font-medium text-white">
+                              {skill.name}
+                            </div>
+                            <span
+                              className={`text-xs px-2 py-1 rounded-full border ${getLevelColor(
+                                skill.level as SkillLevel
+                              )}`}
+                            >
+                              {skill.level}
+                            </span>
                           </div>
                         </div>
-                      );
-                    })}
-                  </div>
 
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/5 group-hover:from-primary/5 group-hover:to-primary/5 rounded-2xl transition-all duration-300 pointer-events-none "></div>
+                        {/* Proficiency Bar */}
+                        <div className="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
+                          <div
+                            className="absolute top-0 left-0 h-full bg-linear-to-r from-primary/10 to-primary/80 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${proficiency}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              </FadeIn>
-            )
-          )}
+
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/5 group-hover:from-primary/5 group-hover:to-primary/5 rounded-2xl transition-all duration-300 pointer-events-none "></div>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
