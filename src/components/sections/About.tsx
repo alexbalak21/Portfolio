@@ -1,21 +1,12 @@
 import {
-  SiReact,
-  SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
-  SiNodedotjs,
-  SiMongodb,
-  SiSpringboot,
-  SiPostgresql,
   SiDocker,
-  SiKubernetes,
   SiGithub,
-  SiDjango,
-  
 } from "react-icons/si";
-import { FaJava, FaPython } from "react-icons/fa";
-import { FaCode, FaDatabase } from "react-icons/fa6";
-import { PERSONAL_INFO, ABOUT_STATS } from "@utils/constants.en";
+import { FaJava, FaPython, FaServer } from "react-icons/fa";
+import { FaCode } from "react-icons/fa6";
+import { PERSONAL_INFO } from "@utils/constants.en";
 
 
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";
@@ -55,7 +46,7 @@ const About = () => {
                 <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-primary/30 bg-primary/10 rounded-full w-fit">
                   <FaCode className="w-4 h-4 text-primary" />
                   <span className="text-sm text-primary font-medium">Full-Stack Developer</span>
-                  <FaDatabase className="w-4 h-4 text-primary" />
+                  <FaServer className="w-4 h-4 text-primary" />
                 </div>
               </FadeIn>
 
