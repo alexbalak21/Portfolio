@@ -1,4 +1,4 @@
-import type { SkillLevel } from "../../utils/types";
+import type { SkillLevel } from "@utils/types";
 import type { IconType } from "react-icons";
 import * as FaIcons from "react-icons/fa";
 import * as Fa6Icons from "react-icons/fa6";
@@ -11,7 +11,6 @@ export interface EnglishSkill {
     level: SkillLevel;
     icon: SkillIconName;
 }
-
 export const categories = [
     { title: "Languages", icon: "FaBarsProgress" },
     { title: "Frameworks", icon: "FaWindowRestore" },
@@ -20,6 +19,10 @@ export const categories = [
 
 export type SkillCategory = (typeof categories)[number];
 export type SkillCategoryTitle = SkillCategory["title"];
+
+export const SHORT_TITLE = "My Expertise";
+export const LONG_TITLE = "Skills & Technologies";
+export const DESCRIPTION = "A showcase of my proficiency in various programming languages, frameworks, and technologies that I have mastered over the years.";
 
 export const languages: EnglishSkill[] = [
     {

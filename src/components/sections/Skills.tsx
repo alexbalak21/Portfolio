@@ -1,15 +1,18 @@
 import {
   categories,
+  DESCRIPTION,
+  LONG_TITLE,
   resolveSkillIcon,
+  SHORT_TITLE,
   skillsByCategory,
   type SkillCategoryTitle,
 } from "../../data/english/skills.en";
 type SkillLevel = "Expert" | "Advanced" | "Intermediate";
 import {
   Code2,
-  Wrench,
 } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
+import { GrUserExpert } from "react-icons/gr";
 
 const Skills = () => {
   const skillCategories: Record<SkillCategoryTitle, typeof skillsByCategory[SkillCategoryTitle]> = skillsByCategory;
@@ -52,18 +55,16 @@ const Skills = () => {
         <FadeIn delay={100}>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-              <Wrench className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">My Expertise</span>
+              <GrUserExpert className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary font-medium">{SHORT_TITLE}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">
-              Skills & Technologies
-              </h2>
+              {LONG_TITLE}
+            </h2>
 
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              A comprehensive overview of my technical skills and proficiencies,
-              showcasing the tools and technologies I excel in to create
-              impactful digital solutions.
+              {DESCRIPTION}
             </p>
           </div>
         </FadeIn>
