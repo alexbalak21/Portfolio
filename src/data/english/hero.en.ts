@@ -18,7 +18,7 @@ export const GET_IN_TOUCH = 'Get in Touch';
 
 export const STATS: StatItem[] = [
   { label: 'Years Experience', value: '3+' },
+  { label: 'Technologies', value: '15+' },
   { label: 'Projects Completed', value: '30+' },
-  { label: 'Technologies', value: '10+' },
   { label: 'Clients', value: '5+' }
 ];

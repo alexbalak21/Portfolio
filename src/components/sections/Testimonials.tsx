@@ -75,7 +75,7 @@ const Testimonials = () => {
                   rating: number;
                   label?: string;
                   value?: string;
-                }, index: number) => (
+                }) => (
                   <div
                     key={testimonial.id}
                     className="w-full shrink-0 px-4"

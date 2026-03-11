@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '@utils/constants.en';
 import FadeIn from "@components/animations/FadeIn";
 import { Github, Linkedin, Mail, MapPin, MessageSquare, Send, Twitter } from 'lucide-react';
+import { SHORT_TITLE, TITLE, DESCRIPTION, SUBTITLE, SUB_DESCRIPTION, contactInfo, SEND_MESSAGE, LOCATION, CONNECT_WITH_ME } from '@data/english/contact.en';
+import { HERO_INFO } from '@data/english/hero.en';
+import { INFO } from '@data/english/info.en';
+import { FaCopy, FaRegCopy } from 'react-icons/fa';
 
 const Contact = () => {
 
@@ -12,6 +16,13 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState({ type: "", message: "" });
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(INFO.email);
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 1000);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -61,13 +72,13 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn delay={0}>
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/30 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <MessageSquare className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium tracking-wider uppercase">Get In Touch</span>
+              <span className="text-sm text-primary font-medium tracking-wider uppercase">{SHORT_TITLE}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">Let's Work Together</h2>
+            <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">{TITLE}</h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+              {DESCRIPTION}
             </p>
           </div>
         </FadeIn>
@@ -79,7 +90,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
-                    Name
+                    {contactInfo.name}
                   </label>
                   <input
                     type="text"
@@ -87,14 +98,14 @@ const Contact = () => {
                     value={formData.name}
                     name="name"
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                    placeholder="Your name"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:bg-black focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+                    placeholder={contactInfo.name_placeholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
-                    Email
+                    {contactInfo.email}
                   </label>
                   <input
                     type="email"
@@ -102,31 +113,31 @@ const Contact = () => {
                     value={formData.email}
                     name="email"
                     onChange={handleChange}
-                    placeholder="your.email@example.com"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+                    placeholder={contactInfo.email_placeholder}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:bg-black focus:ring-2 focus:ring-primary/50 transition-all duration-300"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
-                    Message
+                    {contactInfo.message}
                   </label>
                   <textarea
                     id="message"
                     value={formData.message}
                     name="message"
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                    placeholder="Tell me about your project..."
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:bg-black focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+                    placeholder={contactInfo.message_placeholder}
                     rows={5}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-primary text-white font-medium rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="w-full px-6 py-3 bg-primary/80 text-white font-medium rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
-                  <span>Send Message</span>
+                  <span>{SEND_MESSAGE}</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
 
@@ -148,9 +159,9 @@ const Contact = () => {
           {/* Contact Info */}
           <FadeIn delay={200}>
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-white">Let's Connect</h3>
+              <h3 className="text-2xl font-semibold text-white">{SUBTITLE}</h3>
               <p className="text-white/60 leading-relaxed">
-                I'm always interested in new opportunities and collaborations. Feel free to reach out!
+                {SUB_DESCRIPTION}
               </p>
 
               {/* Email */}
@@ -161,15 +172,28 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-white/60 mb-1">Email</p>
-                    <a
-                      href={`mailto:${PERSONAL_INFO.email}`}
-                      className="text-white hover:text-primary transition-colors font-medium"
-                    >
-                      {PERSONAL_INFO.email}
-                    </a>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={`mailto:${INFO.email}`}
+                        className="text-white hover:text-primary transition-colors font-medium"
+                      >
+                        {INFO.email}
+                      </a>
+                      <button
+                        onClick={copyEmail}
+                        className="inline-flex h-7 w-7 ml-12 items-center justify-center rounded-md border border-white/20 bg-white/5 text-white/70 hover:border-primary/50 hover:text-primary hover:bg-primary/10 transition-all duration-200"
+                        title="Copy email"
+                        aria-label="Copy email"
+                      >
+                        {emailCopied ? <FaCopy className="text-primary" /> : <FaRegCopy />}
+                      </button>
+                      {emailCopied && (
+                        <span className="rounded-md border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary">Copied!</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </div>  
 
               {/* Location */}
               <div className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
@@ -178,15 +202,15 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60 mb-1">Location</p>
-                    <p className="text-white font-medium">{PERSONAL_INFO.location}</p>
+                    <p className="text-sm text-white/60 mb-1">{LOCATION}</p>
+                    <p className="text-white font-medium">{HERO_INFO.location}</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
               <div>
-                <p className="text-sm text-white/60 mb-4">Connect with me</p>
+                <p className="text-sm text-white/60 mb-4">{CONNECT_WITH_ME}</p>
                 <div className="flex gap-4">
                   {Object.entries(SOCIAL_LINKS)
                     .slice(0, 3)
