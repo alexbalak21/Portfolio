@@ -27,7 +27,7 @@ import FadeIn from "../animations/FadeIn";
 const Skills = () => {
   // Categorize skills
   const skillCategories = {
-    "Frontend Development": [
+    "Languages": [
       skills.find((s) => s.name === "React.js"),
       skills.find((s) => s.name === "JavaScript"),
       skills.find((s) => s.name === "TypeScript"),
@@ -59,7 +59,6 @@ const Skills = () => {
     return colors[level] || "text-gray-400 bg-gray-500/20 border-gray-500/30";
   };
 
-  // Dummy proficiency converter (fix your logic here)
   const getProficiencyLevel = (level: string) => {
     switch (level) {
       case "Expert":
@@ -68,6 +67,8 @@ const Skills = () => {
         return 80;
       case "Intermediate":
         return 60;
+      case "Beginner":
+        return 40;
       default:
         return 40;
     }
