@@ -73,6 +73,17 @@ export const projects: Project[] = [
     demoUrl: "https://alex.alwaysdata.net/apps/passgen",
     githubUrl: "https://github.com/alexbalak21/Password-Generator"
   },
+  {
+    id: 8,
+    title: "Tailwind CSS Component Library",
+    description: "A modern React application built with Tailwind CSS v4, featuring a dynamic theme system with 22 color options and dark/light mode support, plus a complete UI component library.",
+    image: "/images/projects/tailwind-components.jpg",
+    category: "UI Components",
+    technologies: ["React", "Tailwind CSS", "TypeScript", "Vite"],
+    metrics: "Tailwind CSS component library",
+    demoUrl: "https://alexbalak21.github.io/Tailwind-Component-Library/",
+    githubUrl: "https://github.com/alexbalak21/Tailwind-Component-Library"
+  },
 ];
 
 
