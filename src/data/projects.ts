@@ -38,23 +38,23 @@ export const projects: Project[] = [
     id: 5,
     title: "To-Do List App",
     description: "A simple, clean, and efficient ToDo List application built with vanilla JavaScript.",
-    image: "/images/projects/Project5.jpg",
-    category: "UI Components",
+    image: "/images/projects/todo.jpg",
+    category: "Frontend",
     technologies: ["HTML5", "CSS3", "JavaScript", "SQLite"],
     metrics: "Used in 10+ projects",
     demoUrl: "https://timetoprogram.com/projects",
-    githubUrl: "https://github.com"
+    githubUrl: "https://alexbalak21.github.io/Todo-List/"
   },
   {
     id: 6,
-    title: "Marketing Automation Tool",
-    description: "Automates email campaigns, lead scoring, and analytics for marketing teams.",
-    image: "/images/projects/Project6.jpg",
+    title: "Novocib Company Website",
+    description: "A modern, responsive website for Novocib, a company providing innovative solutions.",
+    image: "/images/projects/novocib.jpg",
     category: "Full Stack",
-    technologies: ["React", "Node.js", "SendGrid"],
-    metrics: "5x faster campaign setup",
-    demoUrl: "https://timetoprogram.com/projects",
-    githubUrl: "https://github.com"
+    technologies: ["Laravel", "MySQL", "Bootstrap"],
+    metrics: "Increased visibility and sales for by 70%",
+    demoUrl: "https://www.novocib.com/",
+    githubUrl: "https://github.com/alexbalak21"
   },
   {
     id: 7,
