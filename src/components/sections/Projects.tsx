@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { projects, categories } from "../../data/projects";
+import { projects, categories } from "@data/english/projects.en";
 import {
   Briefcase,
   Sparkles,
