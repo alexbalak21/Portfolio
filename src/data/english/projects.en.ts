@@ -47,7 +47,7 @@ export const projects: Project[] = [
     image: "/images/projects/todo.jpg",
     category: "Frontend",
     technologies: ["HTML5", "CSS3", "JavaScript", "SQLite"],
-    metrics: "Wbe application used to manage daily tasks",
+    metrics: "Web application used to manage daily tasks",
     demoUrl: "https://timetoprogram.com/projects",
     githubUrl: "https://alexbalak21.github.io/Todo-List/"
   },
