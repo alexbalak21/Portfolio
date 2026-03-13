@@ -1,9 +1,28 @@
 import { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { testimonials } from '../../data/english/testimonials.en';
+import { testimonials as testimonialsFr } from '../../data/french/testimonials.fr';
 import FadeIn from "@components/animations/FadeIn";
+import { useLanguage } from '@context/LanguageContext';
 
 const Testimonials = () => {
+  const { lang } = useLanguage();
+  const items = lang === 'fr' ? testimonialsFr : testimonials;
+  const sectionText = lang === 'fr'
+    ? {
+        pill: 'Témoignages',
+        title: 'Ils me font confiance pour livrer proprement',
+        description: 'Des collaborations centrées sur la qualité, la clarté et des résultats concrets.',
+        prev: 'Témoignage précédent',
+        next: 'Témoignage suivant',
+      }
+    : {
+        pill: 'Testimonials',
+        title: 'Trusted by forward-thinking teams',
+        description: 'Empowering clients with design-driven, high-quality solutions built for success.',
+        prev: 'Previous testimonial',
+        next: 'Next testimonial',
+      };
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -20,11 +39,11 @@ const Testimonials = () => {
   };
 
   const nextTestimonial = () => {
-    scrollToIndex((currentIndex + 1) % testimonials.length);
+    scrollToIndex((currentIndex + 1) % items.length);
   };
 
   const prevTestimonial = () => {
-    scrollToIndex((currentIndex - 1 + testimonials.length) % testimonials.length);
+    scrollToIndex((currentIndex - 1 + items.length) % items.length);
   };
 
   // ...existing code...
@@ -43,15 +62,15 @@ const Testimonials = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <Quote className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium tracking-wider uppercase">Testimonials</span>
+              <span className="text-sm text-primary font-medium tracking-wider uppercase">{sectionText.pill}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4 max-w-xl mx-auto">
-              Trusted by forward-thinking teams
+              {sectionText.title}
             </h2>
 
             <p className="text-lg text-white/60 max-w-xl mx-auto">
-              Empowering clients with design-driven, high-quality solutions built for success.
+              {sectionText.description}
             </p>
           </div>
         </FadeIn>
@@ -65,7 +84,7 @@ const Testimonials = () => {
               style={{ scrollSnapType: "x mandatory" }}
             >
               <div className="flex">
-                {testimonials.map((testimonial: {
+                {items.map((testimonial: {
                   id: number;
                   name: string;
                   role: string;
@@ -147,7 +166,7 @@ const Testimonials = () => {
 
             {/* Pagination Dots */}
             <div className="flex items-center justify-center gap-2 mt-10">
-              {testimonials.map((_: unknown, index: number) => (
+              {items.map((_: unknown, index: number) => (
                 <button
                   key={index}
                   onClick={() => scrollToIndex(index)}
@@ -167,7 +186,7 @@ const Testimonials = () => {
             <button
               onClick={prevTestimonial}
               className="flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 z-10"
-              aria-label="Previous testimonial"
+              aria-label={sectionText.prev}
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
@@ -175,7 +194,7 @@ const Testimonials = () => {
             <button
               onClick={nextTestimonial}
               className="flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 items-center justify-center w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 z-10"
-              aria-label="Next testimonial"
+              aria-label={sectionText.next}
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </button>

@@ -1,16 +1,9 @@
-import { ABOUT_STATS } from "@utils/constants.en";
-
 const presentation_title = "Full-Stack Developer";
 const title = "Turning Ideas Into Functional, Modern Web Experiences";
 const bio = [
     "I'm a motivated full-stack developer focused on building clean, scalable, and modern web applications. After completing several certifications and hands-on projects, I've developed strong skills in Java (Spring Boot), Python (Flask), PHP (Laravel), and React.",
     "I love learning new technologies, improving my code quality, and turning ideas into real, functional products. Whether it's backend APIs, intuitive interfaces, or complete full-stack applications, I enjoy every step of the process.",
     "My goal is simple: keep growing, keep building, and contribute to a team where I can deliver real value while continuing to sharpen my skills."
-]
-
-const bio_example = ["I'm a passionate React developer with over 3 years of experience building scalable, performant web applications. I specialize in creating intuitive user interfaces that combine beautiful design with exceptional functionality.",
-    "My expertise spans the entire frontend ecosystem, from React and Next.js to TypeScript and modern CSS frameworks. I'm committed to writing clean, maintainable code and staying current with the latest web technologies.",
-    "When I'm not coding, you'll find me contributing to open-source projects, writing technical articles, or exploring new design trends."
 ]
 
 const top_card = {

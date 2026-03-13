@@ -1,8 +1,15 @@
 import FadeIn from "@components/animations/FadeIn";
 import { history, SHORT_TITLE, TITLE, DESCRIPTION} from "@data/english/experience.en";
 import { Briefcase } from "lucide-react";
+import { history as historyFr, SHORT_TITLE as SHORT_TITLE_FR, TITLE as TITLE_FR, DESCRIPTION as DESCRIPTION_FR } from "@data/french/experience.fr";
+import { useLanguage } from "@context/LanguageContext";
 
 const Experience = () => {
+  const { lang } = useLanguage();
+  const content = lang === 'fr'
+    ? { history: historyFr, SHORT_TITLE: SHORT_TITLE_FR, TITLE: TITLE_FR, DESCRIPTION: DESCRIPTION_FR, at: 'chez' }
+    : { history, SHORT_TITLE, TITLE, DESCRIPTION, at: 'at' };
+
   return (
     <section id="experience" className="relative py-20 bg-black overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -25,22 +32,22 @@ const Experience = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <Briefcase className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium tracking-wider uppercase">{SHORT_TITLE}</span>
+              <span className="text-sm text-primary font-medium tracking-wider uppercase">{content.SHORT_TITLE}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4 max-w-2xl mx-auto">
-              {TITLE}
+              {content.TITLE}
             </h2>
 
             <p className="text-lg text-white/60 max-w-xl mx-auto">
-              {DESCRIPTION} 
+              {content.DESCRIPTION} 
             </p>
           </div>
         </FadeIn>
 
         {/* Experience Timeline */}
         <div className="max-w-4xl mx-auto space-y-6">
-          {history.map((item, index) => (
+          {content.history.map((item, index) => (
             <FadeIn key={index} delay={100 + index * 100}>
               <div className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 h-full">
                 {/* Card Content */}
@@ -60,7 +67,7 @@ const Experience = () => {
                   <div className="flex-1">
                     <div className="mb-4">
                       <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-primary transition-colors duration-300 mb-2">
-                        {item.role} at {item.organisation}
+                        {item.role} {content.at} {item.organisation}
                       </h3>
                       <p className="text-sm md:text-base text-primary/80 font-medium group-hover:text-white">
                         {item.startDate} — {item.endDate}

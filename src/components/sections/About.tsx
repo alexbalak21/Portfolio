@@ -1,32 +1,26 @@
-import {
-  SiTypescript,
-  SiTailwindcss,
-  SiDocker,
-  SiGithub,
-} from "react-icons/si";
+import { SiTypescript, SiTailwindcss, SiDocker, SiGithub } from "react-icons/si";
 import { FaJava, FaPython, FaServer } from "react-icons/fa";
 import { FaCode } from "react-icons/fa6";
 import { PERSONAL_INFO } from "@utils/constants.en";
-
-
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";
 import FadeIn from "@components/animations/FadeIn";
 import { AppWindow, Code2, Download, Zap } from "lucide-react";
-import { ABOUT_DATA } from "@data/english/about.en";
+import { ABOUT_DATA as ABOUT_DATA_EN } from "@data/english/about.en";
+import { ABOUT_DATA as ABOUT_DATA_FR } from "@data/french/about.fr";
+import { useLanguage } from "@context/LanguageContext";
 
 const About = () => {
+  const { lang } = useLanguage();
+  const ABOUT_DATA = lang === 'fr' ? ABOUT_DATA_FR : ABOUT_DATA_EN;
+
   const skills = [
     { name: "Java", icon: FaJava, color: "#61DAFB" },
     { name: "Python", icon: FaPython, color: "#3776AB" },
-    // { name: "Spring Boot", icon: SiSpringboot, color: "#61DAFB" },
-    // { name: "Django", icon: SiDjango, color: "#092E20" },
     { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    // { name: "React", icon: SiReact, color: "#61DAFB" },
     { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-    // { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
     { name: "Docker", icon: SiDocker, color: "#2496ED" },
     { name: "GitHub", icon: SiGithub, color: "#211F20" }
-  ]
+  ];
 
   return (
     <section id="about" className="relative py-20 bg-black overflow-hidden">
@@ -45,7 +39,7 @@ const About = () => {
               <FadeIn delay={60}>
                 <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-primary/30 bg-primary/10 rounded-full w-fit">
                   <FaCode className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-primary font-medium">Full-Stack Developer</span>
+                  <span className="text-sm text-primary font-medium">{ABOUT_DATA.presentation_title}</span>
                   <FaServer className="w-4 h-4 text-primary" />
                 </div>
               </FadeIn>
@@ -150,18 +144,12 @@ const About = () => {
                 <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-primary/5 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
                 <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
                   <div className="grid grid-cols-3 gap-6 text-center">
-                    <div>
-                      <div className="text-xl font-bold text-primary mb-1">{ABOUT_DATA.STATS_ROW[0].title}</div>
-                      <div className="text-xs text-white/60">{ABOUT_DATA.STATS_ROW[0].description}</div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-bold text-primary mb-1">{ABOUT_DATA.STATS_ROW[1].title}</div>
-                      <div className="text-xs text-white/60">{ABOUT_DATA.STATS_ROW[1].description}</div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-bold text-primary mb-1">{ABOUT_DATA.STATS_ROW[2].title}</div>
-                      <div className="text-xs text-white/60">{ABOUT_DATA.STATS_ROW[2].description}</div>
-                    </div>
+                    {ABOUT_DATA.STATS_ROW.map((item, index) => (
+                      <div key={index}>
+                        <div className="text-xl font-bold text-primary mb-1">{item.title}</div>
+                        <div className="text-xs text-white/60">{item.description}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -192,8 +180,6 @@ const About = () => {
                   <div className="text-sm text-white/80 font-medium text-center">
                     {skill.name}
                   </div>
-
-                  {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-primary/10 rounded-2xl transition-all duration-300"></div>
                 </div>
               ))}

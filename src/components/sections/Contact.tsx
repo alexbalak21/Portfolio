@@ -1,13 +1,61 @@
 import { useState } from 'react';
-import { PERSONAL_INFO, SOCIAL_LINKS } from '@utils/constants.en';
+import { SOCIAL_LINKS } from '@utils/constants.en';
 import FadeIn from "@components/animations/FadeIn";
 import { Github, Linkedin, Mail, MapPin, MessageSquare, Send, Twitter } from 'lucide-react';
 import { SHORT_TITLE, TITLE, DESCRIPTION, SUBTITLE, SUB_DESCRIPTION, contactInfo, SEND_MESSAGE, LOCATION, CONNECT_WITH_ME } from '@data/english/contact.en';
 import { HERO_INFO } from '@data/english/hero.en';
 import { INFO } from '@data/english/info.en';
 import { FaCopy, FaRegCopy } from 'react-icons/fa';
+import { SHORT_TITLE as SHORT_TITLE_FR, TITLE as TITLE_FR, DESCRIPTION as DESCRIPTION_FR, SUBTITLE as SUBTITLE_FR, SUB_DESCRIPTION as SUB_DESCRIPTION_FR, contactInfo as contactInfoFr, SEND_MESSAGE as SEND_MESSAGE_FR, LOCATION as LOCATION_FR, CONNECT_WITH_ME as CONNECT_WITH_ME_FR } from '@data/french/contact.fr';
+import { HERO_INFO as HERO_INFO_FR } from '@data/french/hero.fr';
+import { INFO as INFO_FR } from '@data/french/info.fr';
+import { useLanguage } from '@context/LanguageContext';
 
 const Contact = () => {
+  const { lang } = useLanguage();
+  const texts = lang === 'fr'
+    ? {
+        SHORT_TITLE: SHORT_TITLE_FR,
+        TITLE: TITLE_FR,
+        DESCRIPTION: DESCRIPTION_FR,
+        SUBTITLE: SUBTITLE_FR,
+        SUB_DESCRIPTION: SUB_DESCRIPTION_FR,
+        contactInfo: contactInfoFr,
+        SEND_MESSAGE: SEND_MESSAGE_FR,
+        LOCATION: LOCATION_FR,
+        CONNECT_WITH_ME: CONNECT_WITH_ME_FR,
+        HERO_INFO: HERO_INFO_FR,
+        INFO: INFO_FR,
+        errors: {
+          required: 'Veuillez remplir tous les champs',
+          invalidEmail: 'Veuillez saisir un email valide',
+          success: "Message envoyé avec succès ! Je vous répondrai rapidement.",
+          email: 'Email',
+          copy: 'Copier l\'email',
+          copied: 'Copié !',
+        },
+      }
+    : {
+        SHORT_TITLE,
+        TITLE,
+        DESCRIPTION,
+        SUBTITLE,
+        SUB_DESCRIPTION,
+        contactInfo,
+        SEND_MESSAGE,
+        LOCATION,
+        CONNECT_WITH_ME,
+        HERO_INFO,
+        INFO,
+        errors: {
+          required: 'Please fill in all fields',
+          invalidEmail: 'Please enter a valid email',
+          success: "Message sent successfully! I'll get back to you soon.",
+          email: 'Email',
+          copy: 'Copy email',
+          copied: 'Copied!',
+        },
+      };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,7 +67,7 @@ const Contact = () => {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(INFO.email);
+    navigator.clipboard.writeText(texts.INFO.email);
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 1000);
   };
@@ -32,19 +80,19 @@ const Contact = () => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
-      setStatus({ type: 'error', message: 'Please fill in all fields' });
+      setStatus({ type: 'error', message: texts.errors.required });
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setStatus({ type: 'error', message: 'Please enter a valid email' });
+      setStatus({ type: 'error', message: texts.errors.invalidEmail });
       return;
     }
 
     setStatus({
       type: 'success',
-      message: "Message sent successfully! I'll get back to you soon."
+      message: texts.errors.success
     });
 
     setFormData({ name: '', email: '', message: '' });
@@ -74,11 +122,11 @@ const Contact = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <MessageSquare className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium tracking-wider uppercase">{SHORT_TITLE}</span>
+              <span className="text-sm text-primary font-medium tracking-wider uppercase">{texts.SHORT_TITLE}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">{TITLE}</h2>
+            <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">{texts.TITLE}</h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              {DESCRIPTION}
+              {texts.DESCRIPTION}
             </p>
           </div>
         </FadeIn>
@@ -90,7 +138,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
-                    {contactInfo.name}
+                    {texts.contactInfo.name}
                   </label>
                   <input
                     type="text"
@@ -99,13 +147,13 @@ const Contact = () => {
                     name="name"
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:bg-black focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                    placeholder={contactInfo.name_placeholder}
+                    placeholder={texts.contactInfo.name_placeholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
-                    {contactInfo.email}
+                    {texts.contactInfo.email}
                   </label>
                   <input
                     type="email"
@@ -113,14 +161,14 @@ const Contact = () => {
                     value={formData.email}
                     name="email"
                     onChange={handleChange}
-                    placeholder={contactInfo.email_placeholder}
+                    placeholder={texts.contactInfo.email_placeholder}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:bg-black focus:ring-2 focus:ring-primary/50 transition-all duration-300"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
-                    {contactInfo.message}
+                    {texts.contactInfo.message}
                   </label>
                   <textarea
                     id="message"
@@ -128,7 +176,7 @@ const Contact = () => {
                     name="message"
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:bg-black focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                    placeholder={contactInfo.message_placeholder}
+                    placeholder={texts.contactInfo.message_placeholder}
                     rows={5}
                   />
                 </div>
@@ -137,7 +185,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full px-6 py-3 bg-primary/80 text-white font-medium rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
-                  <span>{SEND_MESSAGE}</span>
+                  <span>{texts.SEND_MESSAGE}</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
 
@@ -159,9 +207,9 @@ const Contact = () => {
           {/* Contact Info */}
           <FadeIn delay={200}>
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-white">{SUBTITLE}</h3>
+              <h3 className="text-2xl font-semibold text-white">{texts.SUBTITLE}</h3>
               <p className="text-white/60 leading-relaxed">
-                {SUB_DESCRIPTION}
+                {texts.SUB_DESCRIPTION}
               </p>
 
               {/* Email */}
@@ -171,24 +219,24 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60 mb-1">Email</p>
+                    <p className="text-sm text-white/60 mb-1">{texts.errors.email}</p>
                     <div className="flex items-center gap-2">
                       <a
-                        href={`mailto:${INFO.email}`}
+                        href={`mailto:${texts.INFO.email}`}
                         className="text-white hover:text-primary transition-colors font-medium"
                       >
-                        {INFO.email}
+                        {texts.INFO.email}
                       </a>
                       <button
                         onClick={copyEmail}
                         className="inline-flex h-7 w-7 ml-12 items-center justify-center rounded-md border border-white/20 bg-white/5 text-white/70 hover:border-primary/50 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-                        title="Copy email"
-                        aria-label="Copy email"
+                        title={texts.errors.copy}
+                        aria-label={texts.errors.copy}
                       >
                         {emailCopied ? <FaCopy className="text-primary" /> : <FaRegCopy />}
                       </button>
                       {emailCopied && (
-                        <span className="rounded-md border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary">Copied!</span>
+                        <span className="rounded-md border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary">{texts.errors.copied}</span>
                       )}
                     </div>
                   </div>
@@ -202,15 +250,15 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-white/60 mb-1">{LOCATION}</p>
-                    <p className="text-white font-medium">{HERO_INFO.location}</p>
+                    <p className="text-sm text-white/60 mb-1">{texts.LOCATION}</p>
+                    <p className="text-white font-medium">{texts.HERO_INFO.location}</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
               <div>
-                <p className="text-sm text-white/60 mb-4">{CONNECT_WITH_ME}</p>
+                <p className="text-sm text-white/60 mb-4">{texts.CONNECT_WITH_ME}</p>
                 <div className="flex gap-4">
                   {Object.entries(SOCIAL_LINKS)
                     .slice(0, 3)

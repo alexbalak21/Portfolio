@@ -7,15 +7,29 @@ import {
   skillsByCategory,
   type SkillCategoryTitle,
 } from "../../data/english/skills.en";
+import { DESCRIPTION as DESCRIPTION_FR, LONG_TITLE as LONG_TITLE_FR, SHORT_TITLE as SHORT_TITLE_FR } from "../../data/french/skills.fr";
 type SkillLevel = "Expert" | "Advanced" | "Intermediate";
 import {
   Code2,
 } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
 import { GrUserExpert } from "react-icons/gr";
+import { useLanguage } from "@context/LanguageContext";
 
 const Skills = () => {
+  const { lang } = useLanguage();
   const skillCategories: Record<SkillCategoryTitle, typeof skillsByCategory[SkillCategoryTitle]> = skillsByCategory;
+  const sectionText = lang === 'fr'
+    ? { shortTitle: SHORT_TITLE_FR, longTitle: LONG_TITLE_FR, description: DESCRIPTION_FR }
+    : { shortTitle: SHORT_TITLE, longTitle: LONG_TITLE, description: DESCRIPTION };
+  const categoryLabels: Record<SkillCategoryTitle, string> = {
+    Languages: lang === 'fr' ? 'Langages' : 'Languages',
+    Frameworks: lang === 'fr' ? 'Frameworks' : 'Frameworks',
+    Technologies: lang === 'fr' ? 'Technologies' : 'Technologies',
+  };
+  const levelLabels: Record<SkillLevel, string> = lang === 'fr'
+    ? { Expert: 'Expert', Advanced: 'Avancé', Intermediate: 'Intermédiaire' }
+    : { Expert: 'Expert', Advanced: 'Advanced', Intermediate: 'Intermediate' };
 
   // Level color
   const getLevelColor = (level: SkillLevel) => {
@@ -56,15 +70,15 @@ const Skills = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <GrUserExpert className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">{SHORT_TITLE}</span>
+              <span className="text-sm text-primary font-medium">{sectionText.shortTitle}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">
-              {LONG_TITLE}
+              {sectionText.longTitle}
             </h2>
 
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              {DESCRIPTION}
+              {sectionText.description}
             </p>
           </div>
         </FadeIn>
@@ -81,7 +95,7 @@ const Skills = () => {
                     const CategoryIcon = resolveSkillIcon(category.icon) || Code2;
                     return <CategoryIcon className="w-5 h-5 text-white" />;
                   })()}
-                  <h3 className="text-xl font-medium text-white">{category.title}</h3>
+                  <h3 className="text-xl font-medium text-white">{categoryLabels[category.title]}</h3>
                 </div>
 
                 {/* Skills List */}
@@ -111,7 +125,7 @@ const Skills = () => {
                                 skill.level as SkillLevel
                               )}`}
                             >
-                              {skill.level}
+                              {levelLabels[skill.level as SkillLevel]}
                             </span>
                           </div>
                         </div>

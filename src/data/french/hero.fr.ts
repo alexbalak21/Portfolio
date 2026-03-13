@@ -1,4 +1,5 @@
 import type { HeroInfo } from "@types";
+import type { StatItem } from "@types";
 
 const short_title = "Développeur Spring Boot, Flask et React"
 const title = "Développeur Full Stack Java, Python, TypeScript";
@@ -13,3 +14,12 @@ export const HERO_INFO: HeroInfo = {
     title,
     description
 }
+
+export const GET_IN_TOUCH = 'Me Contacter';
+
+export const STATS: StatItem[] = [
+    { label: "Années d'expérience", value: '3+' },
+    { label: 'Technologies', value: '15+' },
+    { label: 'Projets Réalisés', value: '30+' },
+    { label: 'Clients', value: '5+' }
+];

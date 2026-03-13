@@ -29,6 +29,7 @@
       "@": ["src"],
       "@app/*": ["src/app/*"],
       "@features/*": ["src/features/*"],
+      "@context/*": ["src/context/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
       "@data/*": ["src/data/*"],

@@ -1,9 +1,8 @@
 import type { Project } from "@types";
 
-const pill_title = "My Projects";
-const TITLE = "Featured Work";
-const description = "Explore a selection of my most impactful projects, showcasing my expertise in Java, Python, TypeScript, and modern web development. Each project highlights my commitment to clean architecture, scalability, and user-centric design.";
-const desc_exemple = "A curated selection of projects showcasing my experience across development, design, automation, and digital strategy."
+export const pill_title = "My Projects";
+export const TITLE = "Featured Work";
+export const description = "Explore a selection of my most impactful projects, showcasing my expertise in Java, Python, TypeScript, and modern web development. Each project highlights my commitment to clean architecture, scalability, and user-centric design.";
 
 
 export const projects: Project[] = [
@@ -87,4 +86,4 @@ export const projects: Project[] = [
 ];
 
 
-export const categories: string[] = ['All', 'Web Apps', 'UI Components', 'Full Stack'];
+export const categories: string[] = ['All', 'Web Apps', 'UI Components', 'Full Stack', 'Frontend'];

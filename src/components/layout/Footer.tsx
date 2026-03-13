@@ -4,10 +4,19 @@ import { SECTION_OFFSETS } from "@utils/offsets"
 import { NAV_LINKS, PERSONAL_INFO, SOCIAL_LINKS } from "@utils/constants.en"
 import { INFO } from "@data/english/info.en"
 import { FOOTER } from "@data/english/footer.en"
+import { NAV_LINKS as NAV_LINKS_FR } from "@data/french/navigation.fr"
+import { INFO as INFO_FR } from "@data/french/info.fr"
+import { FOOTER as FOOTER_FR } from "@data/french/footer.fr"
+import { useLanguage } from "@context/LanguageContext"
 
 import { Dribbble, Github, Heart, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const navLinks = lang === 'fr' ? NAV_LINKS_FR : NAV_LINKS;
+  const info = lang === 'fr' ? INFO_FR : INFO;
+  const footerText = lang === 'fr' ? FOOTER_FR : FOOTER;
+  const rights = lang === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.';
 
   const socialIcons = {
     github: Github,
@@ -37,21 +46,21 @@ export default function Footer() {
               </h3>
 
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
-                {PERSONAL_INFO.tagline}
+                {footerText.subtitle}
               </p>
 
               <div className="space-y-3">
 
                 {/* Email */}
                 <a
-                  href={`mailto:${INFO.email}`}
+                  href={`mailto:${info.email}`}
                   className="group flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
                 >
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <Mail className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-white/70 text-sm group-hover:text-white transition-colors">
-                    {INFO.email}
+                    {info.email}
                   </span>
                 </a>
 
@@ -61,7 +70,7 @@ export default function Footer() {
                     <MapPin className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-white/70 text-sm">
-                    {INFO.location}
+                    {info.location}
                   </span>
                 </div>
 
@@ -72,9 +81,9 @@ export default function Footer() {
           {/* Column 2 — Quick Links */}
           <FadeIn delay={100}>
             <div>
-              <h4 className="text-white font-semibold mb-6 text-lg">{FOOTER.quick_links}</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">{footerText.quick_links}</h4>
               <ul className="space-y-3">
-                {NAV_LINKS.map((link) => (
+                {navLinks.map((link) => (
                   <li key={link.id}>
                     <button
                       onClick={() => scrollToSection(link.id, SECTION_OFFSETS[link.id] || 110, 600)}
@@ -92,10 +101,10 @@ export default function Footer() {
           {/* Column 3 — Social */}
           <FadeIn delay={200}>
             <div>
-              <h4 className="text-white font-semibold mb-6 text-lg">{FOOTER.connect_with_me}</h4>
+              <h4 className="text-white font-semibold mb-6 text-lg">{footerText.connect_with_me}</h4>
 
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
-                {FOOTER.connect_subtitle}
+                {footerText.connect_subtitle}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -126,11 +135,11 @@ export default function Footer() {
           <div className="pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-white/50 text-sm">
-                &copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.
+                &copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. {rights}
               </p>
 
               <p className="flex items-center gap-2 text-white/50 text-sm">
-                {FOOTER.build_with} <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" /> {FOOTER.using} React, TypeScript, Tailwind CSS
+                {footerText.build_with} <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" /> {footerText.using} React, TypeScript, Tailwind CSS
               </p>
             </div>
           </div>

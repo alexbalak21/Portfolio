@@ -1,15 +1,3 @@
-type Testimonial = {
-  id: number;
-  name: string;
-  role: string;
-  company: string;
-  image: string;
-  quote: string;
-  rating: number;
-  label: string;
-  value: string;
-};
-
 export const testimonials = 
 [
   {

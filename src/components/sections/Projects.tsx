@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { projects, categories } from "@data/english/projects.en";
+import { projects as projectsFr, categories as categoriesFr, pill_title as pillTitleFr, TITLE as titleFr, description as descriptionFr } from "@data/french/projects.fr";
 import {
   Briefcase,
   Sparkles,
@@ -12,6 +13,8 @@ import {
 } from "lucide-react";
 import ProjectCard from "../ui/ProjectCard";
 import FadeIn from "../animations/FadeIn";
+import { useLanguage } from "@context/LanguageContext";
+import { pill_title as pillTitleEn, TITLE as titleEn, description as descriptionEn } from "@data/english/projects.en";
 
 const iconMap = {
   All: Sparkles,
@@ -23,14 +26,18 @@ const iconMap = {
 };
 
 const Projects = () => {
+  const { lang } = useLanguage();
+  const content = lang === 'fr'
+    ? { projects: projectsFr, categories: categoriesFr, pillTitle: pillTitleFr, title: titleFr, description: descriptionFr }
+    : { projects, categories, pillTitle: pillTitleEn, title: titleEn, description: descriptionEn };
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      ? content.projects
+      : content.projects.filter((p) => p.category === activeCategory);
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
@@ -85,16 +92,15 @@ const Projects = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">My Projects</span>
+              <span className="text-sm text-primary font-medium">{content.pillTitle}</span>
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-normal text-white mb-4">
-              Featured Work
+              {content.title}
             </h2>
 
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              A curated selection of projects showcasing my experience across
-              development, design, automation, and digital strategy.
+              {content.description}
             </p>
           </div>
         </FadeIn>
@@ -102,7 +108,7 @@ const Projects = () => {
         {/* Categories */}
         <FadeIn delay={200}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((cat) => {
+            {content.categories.map((cat) => {
               const Icon = iconMap[cat as keyof typeof iconMap] || Sparkles;
               const active = activeCategory === cat;
 
