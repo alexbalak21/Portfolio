@@ -3,7 +3,7 @@ import { Code, Menu, X } from 'lucide-react';
 import {PERSONAL_INFO } from '@utils/constants.en';
 import { useScrollSpy, scrollToSection } from '@hooks/useScrollSpy';
 import { SECTION_OFFSETS } from '@utils/offsets';
-import { NAV_LINKS } from '@data/english/navigation.en';
+import { HIRE_ME, NAV_LINKS } from '@data/english/navigation.en';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
               onClick={() => handleNavClick('contact')}
               className="px-7 py-3.5 bg-white text-[#212121] font-medium text-base rounded-[17px] border border-white hover:bg-white/90 transition-all duration-300"
             >
-              Hire Me
+             {HIRE_ME}
             </button>
           </div>
 
