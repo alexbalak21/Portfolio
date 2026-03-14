@@ -8,13 +8,13 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: 'en',
+  lang: 'fr',
   setLang: () => {},
 });
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>(() => {
-    return (localStorage.getItem('portfolio-lang') as Language) || 'en';
+    return (localStorage.getItem('portfolio-lang') as Language) || 'fr';
   });
 
   const handleSetLang = (newLang: Language) => {
