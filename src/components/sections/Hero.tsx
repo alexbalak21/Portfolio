@@ -2,6 +2,7 @@ import { scrollToSection } from "@hooks/useScrollSpy";
 import { SECTION_OFFSETS } from "@utils/offsets";
 import FadeIn from "@components/animations/FadeIn";
 import RadialGradientBackground from "../backgrounds/RadialGradientBackground";
+import WaveBackground from "@components/backgrounds/WaveBackground";
 import { ChevronDown } from "lucide-react";
 import { FaDatabase } from "react-icons/fa";
 import { SiReact, SiSpring, SiPython, SiTypescript, SiGithub } from "react-icons/si";
@@ -19,6 +20,7 @@ const Hero = () => {
   return (
     <section className="relative w-full overflow-hidden">
       <RadialGradientBackground variant="hero" />
+      {/* <WaveBackground variant="hero" /> */}
 
       {/* Content Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24">

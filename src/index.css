@@ -115,6 +115,38 @@ html.scrolling {
         }
     }
 
+    @keyframes waveDrift {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes waveDriftReverse {
+        from {
+            transform: translateX(-50%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .animate-wave-drift-slow {
+        animation: waveDrift 30s linear infinite;
+    }
+
+    .animate-wave-drift-medium {
+        animation: waveDrift 22s linear infinite;
+    }
+
+    .animate-wave-drift-fast-reverse {
+        animation: waveDriftReverse 16s linear infinite;
+    }
+
     /* Line Clamp */
     .line-clamp-2 {
         display: -webkit-box;
