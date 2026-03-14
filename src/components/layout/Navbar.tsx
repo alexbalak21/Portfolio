@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { PERSONAL_INFO } from '@utils/constants.en';
 import { useScrollSpy, scrollToSection } from '@hooks/useScrollSpy';
 import { SECTION_OFFSETS } from '@utils/offsets';
@@ -7,6 +7,7 @@ import { NAV_LINKS as NAV_LINKS_EN, HIRE_ME as HIRE_ME_EN } from '@data/english/
 import { NAV_LINKS as NAV_LINKS_FR, HIRE_ME as HIRE_ME_FR } from '@data/french/navigation.fr';
 import { useLanguage } from '@context/LanguageContext';
 import type { Language } from '@context/LanguageContext';
+import { FaCode } from 'react-icons/fa6';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -44,7 +45,7 @@ const Navbar: React.FC = () => {
 
           {/* Logo */}
           <div className="flex items-center gap-4">
-            <Code className="w-6 h-6 text-primary" />
+            <FaCode className="w-7 h-7 text-primary" />
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-2xl font-bold bg-linear-to-r from-primary via-primary/50 to-primary/30 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
