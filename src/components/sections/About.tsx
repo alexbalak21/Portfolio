@@ -3,7 +3,7 @@ import { FaJava, FaPython, FaServer } from "react-icons/fa";
 import { FaCode } from "react-icons/fa6";
 import { PERSONAL_INFO } from "@utils/constants.en";
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";
-import WaveBackground from "@components/backgrounds/WaveBackground";
+
 import FadeIn from "@components/animations/FadeIn";
 import { AppWindow, Code2, Download, Zap } from "lucide-react";
 import { ABOUT_DATA as ABOUT_DATA_EN } from "@data/english/about.en";
@@ -26,7 +26,6 @@ const About = () => {
   return (
     <section id="about" className="relative py-20 bg-black overflow-hidden">
       <RadialGradientBackground variant="about" />
-      {/* <WaveBackground variant="section" /> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
