@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SOCIAL_LINKS } from '@utils/constants.en';
 import FadeIn from "@components/animations/FadeIn";
-import { Github, Linkedin, Mail, MapPin, MessageSquare, Send, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, MessageSquare, Send, Instagram } from 'lucide-react';
 import { SHORT_TITLE, TITLE, DESCRIPTION, SUBTITLE, SUB_DESCRIPTION, contactInfo, SEND_MESSAGE, LOCATION, CONNECT_WITH_ME } from '@data/english/contact.en';
 import { HERO_INFO } from '@data/english/hero.en';
 import { INFO } from '@data/english/info.en';
@@ -128,7 +128,7 @@ const Contact = () => {
   const socialIcons = {
     github: Github,
     linkedin: Linkedin,
-    twitter: Twitter
+    instagram: Instagram
   };
 
   return (

@@ -15,9 +15,9 @@ export const PERSONAL_INFO: PersonalInfo = {
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
-  github: 'https://github.com',
-  linkedin: 'https://linkedin.com/',
-  twitter: 'https://twitter.com',
+  github: 'https://github.com/alexbalak21',
+  linkedin: 'https://www.linkedin.com/in/alexandre-balakirev/',
+  instagram: 'https://instagram.com',
   dribbble: 'https://dribbble.com'
 };
 
