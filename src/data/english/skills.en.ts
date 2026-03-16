@@ -1,10 +1,35 @@
 import type { SkillLevel } from "@utils/types";
 import type { IconType } from "react-icons";
-import * as FaIcons from "react-icons/fa";
-import * as Fa6Icons from "react-icons/fa6";
-import * as SiIcons from "react-icons/si";
+// Named imports for only used icons
+import { FaJava, FaPython, FaJsSquare, FaPhp, FaGithub, FaHtml5, FaCss3Alt, FaBootstrap, FaDocker, FaReact, FaBars, FaWindowRestore, FaWrench } from "react-icons/fa";
+import { FaCode } from "react-icons/fa6";
+import { SiTypescript, SiSpring, SiFlask, SiDjango, SiLaravel, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
-type SkillIconName = keyof typeof FaIcons | keyof typeof Fa6Icons | keyof typeof SiIcons;
+const iconMap: Record<string, IconType> = {
+    FaJava,
+    FaPython,
+    FaJsSquare,
+    FaPhp,
+    FaGithub,
+    FaHtml5,
+    FaCss3Alt,
+    FaBootstrap,
+    FaDocker,
+    FaReact,
+    FaBars,
+    FaWindowRestore,
+    FaWrench,
+    FaCode,
+    SiTypescript,
+    SiSpring,
+    SiFlask,
+    SiDjango,
+    SiLaravel,
+    SiNextdotjs,
+    SiTailwindcss,
+};
+
+type SkillIconName = keyof typeof iconMap;
 
 export interface EnglishSkill {
     name: string;
@@ -12,7 +37,7 @@ export interface EnglishSkill {
     icon: SkillIconName;
 }
 export const categories = [
-    { title: "Languages", icon: "FaBarsProgress" },
+    { title: "Languages", icon: "FaBars" },
     { title: "Frameworks", icon: "FaWindowRestore" },
     { title: "Technologies", icon: "FaWrench" },
 ] as const satisfies ReadonlyArray<{ title: string; icon: SkillIconName }>;
@@ -38,7 +63,7 @@ export const languages: EnglishSkill[] = [
     {
         name: 'JavaScript',
         level: 'Advanced',
-        icon: 'FaJs',
+        icon: 'FaJsSquare',
     },
     {
         name: 'TypeScript',
@@ -128,20 +153,6 @@ export const skillsByCategory: Record<SkillCategoryTitle, EnglishSkill[]> = {
     "Technologies": tools,
 };
 
-export const usedSkillIcons: SkillIconName[] = [...new Set(skills.map((skill) => skill.icon))];
-
 export const resolveSkillIcon = (iconName: SkillIconName): IconType | undefined => {
-    if (iconName in Fa6Icons) {
-        return Fa6Icons[iconName as keyof typeof Fa6Icons] as IconType;
-    }
-
-    if (iconName.startsWith("Fa")) {
-        return FaIcons[iconName as keyof typeof FaIcons] as IconType;
-    }
-
-    if (iconName.startsWith("Si")) {
-        return SiIcons[iconName as keyof typeof SiIcons] as IconType;
-    }
-
-    return undefined;
+    return iconMap[iconName];
 };

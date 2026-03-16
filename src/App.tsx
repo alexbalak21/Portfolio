@@ -1,14 +1,15 @@
 import { useEffect, useRef } from "react";
 import { LanguageProvider } from "@context/LanguageContext";
 import Navbar from "@components/layout/Navbar";
-import About from "@components/sections/About";
-import Contact from "@components/sections/Contact";
 import Footer from "@components/layout/Footer";
-import Hero from "@components/sections/Hero";
-import Projects from "@components/sections/Projects";
-import Experience from "@components/sections/Experience";
-import Skills from "@components/sections/Skills";
-import Testimonials from "@components/sections/Testimonials";
+import React, { Suspense } from "react";
+const Hero = React.lazy(() => import("@components/sections/Hero"));
+const About = React.lazy(() => import("@components/sections/About"));
+const Skills = React.lazy(() => import("@components/sections/Skills"));
+const Projects = React.lazy(() => import("@components/sections/Projects"));
+const Experience = React.lazy(() => import("@components/sections/Experience"));
+const Testimonials = React.lazy(() => import("@components/sections/Testimonials"));
+const Contact = React.lazy(() => import("@components/sections/Contact"));
 
 export default function App() {
   const scrollTimeout = useRef<number | null>(null);
@@ -33,13 +34,15 @@ export default function App() {
       <div className="min-h-screen bg-black">
         <Navbar />
         <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Testimonials />
-          <Contact />
+          <Suspense fallback={<div className="text-white text-center py-8">Loading...</div>}>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Experience />
+            <Testimonials />
+            <Contact />
+          </Suspense>
         </main>
         <Footer />
       </div>

@@ -1,5 +1,10 @@
-import { SiTypescript, SiTailwindcss, SiDocker, SiGithub } from "react-icons/si";
-import { FaJava, FaPython, FaServer } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
+import { SiDocker } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { FaPython } from "react-icons/fa";
+import { FaServer } from "react-icons/fa";
 import { FaCode } from "react-icons/fa6";
 import { PERSONAL_INFO } from "@utils/constants.en";
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";

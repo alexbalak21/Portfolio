@@ -3,7 +3,6 @@ import { projects, categories } from "@data/english/projects.en";
 import { projects as projectsFr, categories as categoriesFr, pill_title as pillTitleFr, TITLE as titleFr, description as descriptionFr } from "@data/french/projects.fr";
 import {
   Briefcase,
-  Sparkles,
   Target,
   Globe,
   Palette,
@@ -15,9 +14,10 @@ import ProjectCard from "../ui/ProjectCard";
 import FadeIn from "../animations/FadeIn";
 import { useLanguage } from "@context/LanguageContext";
 import { pill_title as pillTitleEn, TITLE as titleEn, description as descriptionEn } from "@data/english/projects.en";
+import { FaWindowMaximize } from "react-icons/fa6";
 
 const iconMap = {
-  All: Sparkles,
+  All: FaWindowMaximize,
   Web: Globe,
   Design: Palette,
   Business: Briefcase,
@@ -91,7 +91,7 @@ const Projects = () => {
         <FadeIn delay={100}>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-primary" />
+              <FaWindowMaximize className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">{content.pillTitle}</span>
             </div>
 
@@ -109,7 +109,7 @@ const Projects = () => {
         <FadeIn delay={200}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {content.categories.map((cat) => {
-              const Icon = iconMap[cat as keyof typeof iconMap] || Sparkles;
+              const Icon = iconMap[cat as keyof typeof iconMap] || FaWindowMaximize;
               const active = activeCategory === cat;
 
               return (
