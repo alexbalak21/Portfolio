@@ -1,0 +1,10 @@
+### SEND MESSAGE
+POST https://www.novocib.com/contact-alex
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "message": "Test message from requests.http"
+}
+

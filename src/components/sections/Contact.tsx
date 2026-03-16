@@ -12,6 +12,7 @@ import { INFO as INFO_FR } from '@data/french/info.fr';
 import { useLanguage } from '@context/LanguageContext';
 
 const Contact = () => {
+  const send_url = "https://www.novocib.com/contact-alex"
   const { lang } = useLanguage();
   const texts = lang === 'fr'
     ? {
@@ -76,7 +77,7 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -90,12 +91,34 @@ const Contact = () => {
       return;
     }
 
-    setStatus({
-      type: 'success',
-      message: texts.errors.success
-    });
+    try {
+      const response = await fetch(send_url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    setFormData({ name: '', email: '', message: '' });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      setStatus({
+        type: 'success',
+        message: texts.errors.success
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.'
+      });
+    }
 
     setTimeout(() => {
       setStatus({ type: '', message: '' });
