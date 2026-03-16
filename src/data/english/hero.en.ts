@@ -20,5 +20,5 @@ export const STATS: StatItem[] = [
   { label: 'Years Experience', value: '3+' },
   { label: 'Technologies', value: '15+' },
   { label: 'Projects Completed', value: '30+' },
-  { label: 'Clients', value: '5+' }
+  { label: 'Certifications', value: '5+' }
 ];

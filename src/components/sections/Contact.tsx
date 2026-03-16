@@ -159,6 +159,17 @@ const Contact = () => {
           <FadeIn delay={100}>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                 {status.message && (
+                  <div
+                    className={`p-4 rounded-xl ${
+                      status.type === 'success'
+                        ? 'border border-green-500/20 text-green-400 bg-green-500/10'
+                        : 'border border-red-500/20 text-red-400 bg-red-500/10'
+                    }`}
+                  >
+                    {status.message}
+                  </div>
+                )}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
                     {texts.contactInfo.name}
@@ -211,18 +222,6 @@ const Contact = () => {
                   <span>{texts.SEND_MESSAGE}</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-
-                {status.message && (
-                  <div
-                    className={`p-4 rounded-xl ${
-                      status.type === 'success'
-                        ? 'border border-green-500/20 text-green-400'
-                        : 'border border-red-500/20 text-red-400'
-                    }`}
-                  >
-                    {status.message}
-                  </div>
-                )}
               </form>
             </div>
           </FadeIn>
