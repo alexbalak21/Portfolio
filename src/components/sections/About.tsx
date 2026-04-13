@@ -6,7 +6,8 @@ import { FaJava } from "react-icons/fa";
 import { FaPython } from "react-icons/fa";
 import { FaServer } from "react-icons/fa";
 import { FaCode } from "react-icons/fa6";
-import { PERSONAL_INFO } from "@utils/constants.en";
+import { PERSONAL_INFO as PERSONAL_INFO_EN } from "@utils/constants.en";
+import { PERSONAL_INFO as PERSONAL_INFO_FR } from "@utils/constants.fr";
 import RadialGradientBackground from "@components/backgrounds/RadialGradientBackground";
 
 import FadeIn from "@components/animations/FadeIn";
@@ -18,6 +19,7 @@ import { useLanguage } from "@context/LanguageContext";
 const About = () => {
   const { lang } = useLanguage();
   const ABOUT_DATA = lang === 'fr' ? ABOUT_DATA_FR : ABOUT_DATA_EN;
+  const PERSONAL_INFO = lang === 'fr' ? PERSONAL_INFO_FR : PERSONAL_INFO_EN;
 
   const skills = [
     { name: "Java", icon: FaJava, color: "#61DAFB" },
