@@ -3,7 +3,7 @@ import type { PersonalInfo, SocialLinks, StatItem, NavLink } from "@types";
 export const PERSONAL_INFO: PersonalInfo = {
   name: 'Alex Balakirev',
   title: 'React Developer & UI/UX Enthusiast',
-  email: 'alex@timetoprogram.com',
+  email: 'alex@alex-balak.online',
   location: 'San Francisco, CA',
   tagline: 'Crafting seamless digital experiences with modern web technology',
   resume: '/CV - Alexandre Balakirev.pdf',

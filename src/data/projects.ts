@@ -42,8 +42,8 @@ export const projects: Project[] = [
     category: "Frontend",
     technologies: ["HTML5", "CSS3", "JavaScript", "SQLite"],
     metrics: "Used in 10+ projects",
-    demoUrl: "https://timetoprogram.com/projects",
-    githubUrl: "https://alexbalak21.github.io/Todo-List/"
+    demoUrl: "https://alexbalak21.github.io/Todo-List/",
+    githubUrl: "https://github.com/alexbalak21/Todo-List"
   },
   {
     id: 6,
